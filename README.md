@@ -1,46 +1,49 @@
-# Astro Starter Kit: Basics
+# Equipo Surcos Web
 
-```sh
-npm create astro@latest -- --template basics
-```
+Sitio web oficial de **Equipo Surcos**, desarrollado con [Astro](https://astro.build/) y [Tailwind CSS v4](https://tailwindcss.com/).
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 🚀 Tecnologías Principales
 
-## 🚀 Project Structure
+- **Astro** - Un framework web extremadamente rápido diseñado para sitios web centrados en el contenido.
+- **Tailwind CSS v4** - Para el estilado rápido usando utilidades y tokens.
+- **Tailwind Animations** - Librería para agregar animaciones predefinidas elegantes.
+- **Lucide Icons** - Conjunto de iconos moderno y limpio.
+- **Fuente Onest** - Set tipográfico principal (variable font).
 
-Inside of your Astro project, you'll see the following folders and files:
+## 🧞 Comandos Útiles
+
+Todos los comandos se ejecutan desde la raíz del proyecto a través de la terminal:
+
+| Comando | Acción |
+| :--- | :--- |
+| `npm install` | Instala las dependencias del proyecto. |
+| `npm run dev` | Inicia el servidor de desarrollo local en `localhost:4321`. |
+| `npm run build` | Compila y optimiza el sitio para producción en el directorio `dist/`. |
+| `npm run preview` | Levanta un servidor local estático para previsualizar el sitio de producción compilado. |
+
+## 📁 Estructura del Proyecto
+
+Dentro del proyecto verás una estructura de archivos de directorios similar a esta:
 
 ```text
 /
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+├── public/                 # Archivos estáticos estáticos que no requieren ser procesados (ej. favicon)
+├── src/
+│   ├── assets/             # Recursos estáticos importados desde el código (imágenes, iconos vectoriales SVG)
+│   ├── components/         # Componentes transversales reutilizables (Modales, Botones, Acordeones, etc.)
+│   ├── i18n/               # Textos, diccionarios y funciones de internacionalización (ES / EN)
+│   ├── layouts/            # Diseños genéricos o envolturas en donde se inyectan las páginas
+│   ├── pages/              # Enrutamiento basado en archivos. Cada archivo Astro es una ruta (ej. index.astro)
+│   ├── sections/           # Componentes más grandes o específicos de secciones de páginas (Trabajos, Founder, Home)
+│   └── styles/             # Variables CSS globales, tipografías y configuración de Tailwind
+├── package.json            # Scripts comunes e información de dependencias
+└── astro.config.mjs        # Configuración principal de la herramienta de Astro
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## 🌍 Internacionalización (i18n)
 
-## 🧞 Commands
+El sitio cuenta con soporte nativo bilingüe (Español e Inglés). La actualización de textos y gestión de traducciones se realizan a través de diccionarios en la carpeta `src/i18n/`, ayudando a mantener separada la lógica de visualización del contenido literal.
 
-All commands are run from the root of the project, from a terminal:
+## 🛠 Accesibilidad y Diseño
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+El proyecto cuenta con especial atención al diseño responsivo, interacciones fluidas (uso de modales con prevención de scroll), preconfiguración para evitar cambios imprevistos de altura y maquetado (layout shifts), y cuenta con compatibilidad con **tema claro y oscuro**.
