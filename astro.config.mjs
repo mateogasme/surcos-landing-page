@@ -6,7 +6,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://www.equiposurcos.com.ar',
+  site: 'https://equiposurcos.com.ar',
   integrations: [
     sitemap({
       i18n: {
