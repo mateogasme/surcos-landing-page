@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.equiposurcos.com.ar/sitemap-index.xml
+Sitemap: https://equiposurcos.com.ar/sitemap-index.xml
