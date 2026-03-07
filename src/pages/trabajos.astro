@@ -1,0 +1,61 @@
+---
+import Contact from "@/sections/Contact.astro";
+import Layout from "@/layouts/Layout.astro";
+
+import TrabajosHeader from "@/sections/trabajos/Header.astro";
+import ProyectosEditoriales from "@/sections/trabajos/ProyectosEditoriales.astro";
+import ItinerariosFormativos from "@/sections/trabajos/ItinerariosFormativos.astro";
+import EdicionesLibros from "@/sections/trabajos/EdicionesLibros.astro";
+
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const SITE_URL = import.meta.env.SITE ?? "https://www.equiposurcos.com.ar";
+const canonicalUrl = new URL(Astro.url.pathname, SITE_URL).toString();
+
+const breadcrumbSchema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+        {
+            "@type": "ListItem",
+            position: 1,
+            name: lang === "es" ? "Inicio" : "Home",
+            item: lang === "es" ? SITE_URL : `${SITE_URL}/en`,
+        },
+        {
+            "@type": "ListItem",
+            position: 2,
+            name: t("meta.trabajos.title"),
+            item: canonicalUrl,
+        },
+    ],
+});
+---
+
+<Layout
+    title={t("meta.trabajos.title") as string}
+    description={t("meta.trabajos.description") as string}
+>
+    <script
+        type="application/ld+json"
+        slot="jsonld"
+        set:html={breadcrumbSchema}
+    />
+    <main class="w-full flex justify-center items-center flex-col px-6 md:px-0">
+        <div class="max-w-175 w-full mt-24 mb-16">
+            <TrabajosHeader />
+            <div
+                class="flex flex-col gap-16 animate-fade-in-up"
+                style="animation-delay: 200ms;"
+            >
+                <ProyectosEditoriales />
+                <ItinerariosFormativos />
+                <EdicionesLibros />
+            </div>
+        </div>
+        <Contact />
+    </main>
+</Layout>

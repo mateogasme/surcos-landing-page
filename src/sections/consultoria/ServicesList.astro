@@ -1,0 +1,200 @@
+---
+import ServiceCard from "@/components/ServiceCard.astro";
+import { getLangFromUrl } from "@/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+
+const content = {
+    es: {
+        c1_title: "Proyectos sociocomunitarios",
+        c1_desc:
+            "Impulsamos iniciativas con profundo arraigo territorial, orientadas al desarrollo local, la organización de las comunidades y el fortalecimiento de capacidades para un desarrollo humano integral.",
+        c2_title: "Proyectos sociopastorales",
+        c2_desc:
+            "Diseñamos y acompañamos procesos que, a nivel local, diocesano o nacional, buscan dinamizar la acción pastoral, inspirados en la renovación eclesial propuesta por el Papa Francisco.",
+        c3_title: "Servicios educativo-pastorales",
+        c3_desc:
+            "Brindamos acompañamiento integral y especializado para instituciones educativas:",
+        c3_l1_strong: "Auditorías integrales:",
+        c3_l1_text:
+            " análisis profundo de la gestión administrativa, pedagógica y pastoral.",
+        c3_l2: "Diseño y fundamentación del proyecto pastoral institucional, junto con iniciativas específicas.",
+        c3_l3: "Asesoría continua en procesos de diagnóstico, formación de equipos y planes de mejora.",
+    },
+    en: {
+        c1_title: "Socio-community projects",
+        c1_desc:
+            "We drive initiatives with strong territorial roots, aimed at local development, community organization, and capacity building to foster integral human development.",
+        c2_title: "Socio-pastoral projects",
+        c2_desc:
+            "We design and guide processes at local, diocesan, or national levels to revitalize pastoral action, inspired by the ecclesial renewal proposed by Pope Francis.",
+        c3_title: "Educational-pastoral services",
+        c3_desc:
+            "We provide comprehensive and specialized support for educational institutions:",
+        c3_l1_strong: "Comprehensive audits:",
+        c3_l1_text:
+            " in-depth analysis of administrative, pedagogical, and pastoral management.",
+        c3_l2: "Design and foundation of the institutional pastoral project, alongside specific initiatives.",
+        c3_l3: "Ongoing advice in diagnostic processes, team training, and improvement plans.",
+    },
+};
+
+const t = content[lang];
+---
+
+<ul
+    class="flex flex-col md:flex-row flex-wrap justify-center gap-6 list-none p-0 m-0"
+>
+    <!-- Card 1 -->
+    <ServiceCard
+        title={t.c1_title}
+        description={t.c1_desc}
+        iconWrapperClasses="bg-orange-500/10 dark:bg-orange-500/20 text-orange-600 dark:text-orange-400"
+        delay={200}
+    >
+        <svg
+            slot="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-network-icon lucide-network"
+        >
+            <rect x="16" y="16" width="6" height="6" rx="1"></rect>
+            <rect x="2" y="16" width="6" height="6" rx="1"></rect>
+            <rect x="9" y="2" width="6" height="6" rx="1"></rect>
+            <path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"></path>
+            <path d="M12 12V8"></path>
+        </svg>
+    </ServiceCard>
+
+    <!-- Card 2 -->
+    <ServiceCard
+        title={t.c2_title}
+        description={t.c2_desc}
+        iconWrapperClasses="bg-emerald-500/10 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400"
+        delay={350}
+    >
+        <svg
+            slot="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-hand-heart-icon lucide-hand-heart"
+        >
+            <path d="M11 14h2a2 2 0 0 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 16"></path>
+            <path
+                d="m14.45 13.39 5.05-4.694C20.196 8 21 6.85 21 5.75a2.75 2.75 0 0 0-4.797-1.837.276.276 0 0 1-.406 0A2.75 2.75 0 0 0 11 5.75c0 1.2.802 2.248 1.5 2.946L16 11.95"
+            ></path>
+            <path d="m2 15 6 6"></path>
+            <path
+                d="m7 20 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a1 1 0 0 0-2.75-2.91"
+            ></path>
+        </svg>
+    </ServiceCard>
+
+    <!-- Card 3 -->
+    <ServiceCard
+        title={t.c3_title}
+        description={t.c3_desc}
+        iconWrapperClasses="bg-purple-500/10 dark:bg-purple-500/20 text-purple-600 dark:text-purple-400"
+        delay={500}
+        wFull={true}
+    >
+        <svg
+            slot="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-clipboard-list-icon lucide-clipboard-list"
+        >
+            <rect width="8" height="4" x="8" y="2" rx="1" ry="1"></rect>
+            <path
+                d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+            ></path>
+            <path d="M12 11h4"></path>
+            <path d="M12 16h4"></path>
+            <path d="M8 11h.01"></path>
+            <path d="M8 16h.01"></path>
+        </svg>
+        <ul
+            class="flex flex-col gap-3 list-none p-0 m-0 mt-2 text-[0.95rem] text-primary/70 leading-relaxed font-normal"
+        >
+            <li class="flex items-start gap-3">
+                <span class="text-purple-500/50 mt-1 shrink-0">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                </span>
+                <span
+                    ><strong class="text-primary/90 font-medium"
+                        >{t.c3_l1_strong}</strong
+                    >{t.c3_l1_text}</span
+                >
+            </li>
+            <li class="flex items-start gap-3">
+                <span class="text-purple-500/50 mt-1 shrink-0">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                </span>
+                <span>{t.c3_l2}</span>
+            </li>
+            <li class="flex items-start gap-3">
+                <span class="text-purple-500/50 mt-1 shrink-0">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                </span>
+                <span>{t.c3_l3}</span>
+            </li>
+        </ul>
+    </ServiceCard>
+</ul>

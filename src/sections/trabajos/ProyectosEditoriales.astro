@@ -1,0 +1,138 @@
+---
+import { getLangFromUrl } from "@/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+
+const content = {
+    es: {
+        title: "Proyectos editoriales institucionales",
+        caritas: {
+            title: "Cáritas",
+            p1_title: "Memoria 2007 - Encuentro nacional de directores/as",
+            p1_desc:
+                "Revisión y corrección de textos, diseño gráfico e impresión de la memoria del Encuentro. Impreso en Argentina.",
+            p2_title: "Cáritas y Pastoral Social",
+            p2_desc:
+                '"Tejiendo reflexiones y metodologías de equidad entre mujeres y hombres" - Documento final. Cáritas Latinoamérica (SELACC).',
+        },
+        matt_lamb: {
+            title: "Matt Lamb",
+            p1_title: "Matt Lamb - Barcelona",
+            p1_desc:
+                "Diseño y puesta en imprenta del catálogo para presentaciones internacionales en el Museo Diocesano de Barcelona y el Real Círculo Artístico.",
+            p2_title: "Sculptures & Millennium",
+            p2_desc:
+                "Diseño y puesta en imprenta del libro recordatorio para la presentación internacional.",
+            p3_title: "The Barcelona Collection",
+            p3_desc:
+                "Diseño y puesta en imprenta del catálogo para la exposición internacional. Impreso en Italia para Europa Museum Schengen.",
+        },
+    },
+    en: {
+        title: "Institutional editorial projects",
+        caritas: {
+            title: "Cáritas",
+            p1_title: "Memoria 2007 - National Meeting of Directors",
+            p1_desc:
+                "Text review and correction, graphic design, and printing of the Meeting's memory. Printed in Argentina.",
+            p2_title: "Cáritas and Social Pastoral",
+            p2_desc:
+                '"Weaving reflections and methodologies of equity between women and men" - Final document. Latin American Cáritas (SELACC).',
+        },
+        matt_lamb: {
+            title: "Matt Lamb",
+            p1_title: "Matt Lamb - Barcelona",
+            p1_desc:
+                "Design and printing of the catalog for international presentations at the Diocesan Museum of Barcelona and the Royal Artistic Circle.",
+            p2_title: "Sculptures & Millennium",
+            p2_desc:
+                "Design and printing of the commemorative book for the international presentation.",
+            p3_title: "The Barcelona Collection",
+            p3_desc:
+                "Design and printing of the catalog for the international exhibition. Printed in Italy for Europa Museum Schengen.",
+        },
+    },
+};
+
+const t = content[lang];
+---
+
+<section>
+    <h2 class="text-xl font-bold text-primary/80 mb-6">
+        {t.title}
+    </h2>
+
+    <ul class="flex flex-col gap-6 list-none p-0 m-0">
+        <!-- Cáritas -->
+        <li
+            class="flex flex-col gap-4 p-8 rounded-2xl bg-white/50 dark:bg-zinc-900/50 border border-primary/10 dark:border-white/10 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 w-full"
+        >
+            <h3 class="text-xl font-semibold text-primary/90 leading-snug">
+                {t.caritas.title}
+            </h3>
+            <div class="flex flex-col gap-4 mt-2">
+                <div>
+                    <strong class="text-primary/90 text-[0.95rem] block mb-1">
+                        {t.caritas.p1_title}
+                    </strong>
+                    <p
+                        class="text-[0.95rem] text-primary/70 leading-relaxed font-normal text-pretty m-0"
+                    >
+                        {t.caritas.p1_desc}
+                    </p>
+                </div>
+                <div class="pt-4 border-t border-primary/5 dark:border-white/5">
+                    <strong class="text-primary/90 text-[0.95rem] block mb-1">
+                        {t.caritas.p2_title}
+                    </strong>
+                    <p
+                        class="text-[0.95rem] text-primary/70 leading-relaxed font-normal text-pretty m-0"
+                    >
+                        {t.caritas.p2_desc}
+                    </p>
+                </div>
+            </div>
+        </li>
+
+        <!-- Matt Lamb -->
+        <li
+            class="flex flex-col gap-4 p-8 rounded-2xl bg-white/50 dark:bg-zinc-900/50 border border-primary/10 dark:border-white/10 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 w-full"
+        >
+            <h3 class="text-xl font-semibold text-primary/90 leading-snug">
+                {t.matt_lamb.title}
+            </h3>
+            <div class="flex flex-col gap-4 mt-2">
+                <div>
+                    <strong class="text-primary/90 text-[0.95rem] block mb-1">
+                        {t.matt_lamb.p1_title}
+                    </strong>
+                    <p
+                        class="text-[0.95rem] text-primary/70 leading-relaxed font-normal text-pretty m-0"
+                    >
+                        {t.matt_lamb.p1_desc}
+                    </p>
+                </div>
+                <div class="pt-4 border-t border-primary/5 dark:border-white/5">
+                    <strong class="text-primary/90 text-[0.95rem] block mb-1">
+                        {t.matt_lamb.p2_title}
+                    </strong>
+                    <p
+                        class="text-[0.95rem] text-primary/70 leading-relaxed font-normal text-pretty m-0"
+                    >
+                        {t.matt_lamb.p2_desc}
+                    </p>
+                </div>
+                <div class="pt-4 border-t border-primary/5 dark:border-white/5">
+                    <strong class="text-primary/90 text-[0.95rem] block mb-1">
+                        {t.matt_lamb.p3_title}
+                    </strong>
+                    <p
+                        class="text-[0.95rem] text-primary/70 leading-relaxed font-normal text-pretty m-0"
+                    >
+                        {t.matt_lamb.p3_desc}
+                    </p>
+                </div>
+            </div>
+        </li>
+    </ul>
+</section>

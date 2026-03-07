@@ -1,0 +1,198 @@
+---
+import ButtonCTA from "@/components/ButtonCTA.astro";
+import ButtonOutline from "@/components/ButtonOutline.astro";
+import Layout from "@/layouts/Layout.astro";
+
+// Icono genérico para probar
+const iconSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>`;
+---
+
+<Layout>
+    <main class="w-full min-h-screen py-16 px-6 md:px-0">
+        <div class="max-w-175 mx-auto flex flex-col gap-16">
+            <!-- 1. Colores y Branding -->
+            <section class="flex flex-col gap-6">
+                <div class="flex flex-col gap-2">
+                    <h2 class="text-2xl font-semibold text-primary">
+                        Paleta de colores
+                    </h2>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="flex flex-col gap-2">
+                        <div
+                            class="h-20 w-full rounded-xl bg-primary border border-primary/10 shadow-sm flex items-end p-3"
+                        >
+                            <span
+                                class="text-secondary text-xs font-mono font-medium"
+                                >bg-primary</span
+                            >
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <div
+                            class="h-20 w-full rounded-xl bg-secondary border border-primary/10 shadow-sm flex items-end p-3"
+                        >
+                            <span
+                                class="text-primary text-xs font-mono font-medium"
+                                >bg-secondary</span
+                            >
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <div
+                            class="h-20 w-full rounded-xl bg-blue-500 border border-primary/10 shadow-sm flex items-end p-3"
+                        >
+                            <span
+                                class="text-white text-xs font-mono font-medium"
+                                >bg-blue-500</span
+                            >
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <div
+                            class="h-20 w-full rounded-xl bg-emerald-500 border border-primary/10 shadow-sm flex items-end p-3"
+                        >
+                            <span
+                                class="text-white text-xs font-mono font-medium"
+                                >bg-emerald-500</span
+                            >
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-4 mt-4">
+                    <h3 class="text-lg font-semibold text-primary">
+                        ¿Cómo funciona?
+                    </h3>
+                    <div
+                        class="bg-zinc-900 dark:bg-black rounded-xl p-5 border border-primary/10 overflow-hidden"
+                    >
+                        <pre
+                            class="text-[13px] leading-relaxed font-mono text-emerald-400/90"><code>{`/* Ejemplo de implementación en CSS */
+:root {
+  --primary: 24 24 27; /* Zinc-900 */
+  --secondary: 255 255 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary: 255 255 255;
+    --secondary: 9 9 11; /* Zinc-950 */
+  }
+}`}</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. Tipografía -->
+            <section class="flex flex-col gap-6">
+                <div class="flex flex-col gap-2">
+                    <h2 class="text-2xl font-semibold text-primary">
+                        Tipografía (Onest)
+                    </h2>
+                </div>
+
+                <div
+                    class="flex flex-col gap-8 p-8 rounded-2xl bg-white/50 dark:bg-zinc-900/50 border border-primary/10"
+                >
+                    <div class="flex flex-col gap-1">
+                        <span class="text-xs text-primary/40 font-mono"
+                            >text-4xl font-bold</span
+                        >
+                        <h1 class="text-4xl font-bold text-primary">
+                            El futuro es hoy
+                        </h1>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <span class="text-xs text-primary/40 font-mono"
+                            >text-2xl font-semibold</span
+                        >
+                        <h2 class="text-2xl font-semibold text-primary">
+                            Educación y tecnología
+                        </h2>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <span class="text-xs text-primary/40 font-mono"
+                            >text-lg font-medium</span
+                        >
+                        <h3 class="text-lg font-medium text-primary">
+                            Acompañamos equipos de trabajo
+                        </h3>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <span class="text-xs text-primary/40 font-mono"
+                            >text-base text-primary/80 font-normal</span
+                        >
+                        <p
+                            class="text-base text-primary/80 font-normal leading-relaxed"
+                        >
+                            Párrafo de lectura general. Es tiempo de potenciar
+                            aquello que ayude a despertar cambios positivos en
+                            nuestros modos de vivir y conocer realidades.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. Botones -->
+            <section class="flex flex-col gap-6">
+                <div class="flex flex-col gap-2">
+                    <h2 class="text-2xl font-semibold text-primary">Botones</h2>
+                </div>
+
+                <div
+                    class="flex flex-col md:flex-row gap-6 p-8 rounded-2xl bg-white/50 dark:bg-zinc-900/50 border border-primary/10 items-center justify-center"
+                >
+                    <div class="flex flex-col gap-4 items-center">
+                        <ButtonCTA> Botón Primario (CTA) </ButtonCTA>
+                        <span class="text-xs text-primary/60 font-mono"
+                            >&lt;ButtonCTA&gt;</span
+                        >
+                    </div>
+
+                    <div class="flex flex-col gap-4 items-center">
+                        <ButtonOutline> Botón Secundario </ButtonOutline>
+                        <span class="text-xs text-primary/60 font-mono"
+                            >&lt;ButtonOutline&gt;</span
+                        >
+                    </div>
+
+                    <div class="flex flex-col gap-4 items-center">
+                        <ButtonCTA class="gap-2 bg-blue-600 hover:bg-blue-700">
+                            Modificado <span set:html={iconSvg} />
+                        </ButtonCTA>
+                        <span class="text-xs text-primary/60 font-mono"
+                            >Con props + iconos</span
+                        >
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. Contenedores -->
+            <section class="flex flex-col gap-6">
+                <div class="flex flex-col gap-2">
+                    <h2 class="text-2xl font-semibold text-primary">
+                        Contenedores
+                    </h2>
+                </div>
+
+                <div
+                    class="p-8 rounded-2xl bg-white/60 dark:bg-zinc-900/60 backdrop-blur-md border border-primary/10 shadow-sm hover:shadow-lg transition-all cursor-default"
+                >
+                    <h3 class="text-lg font-semibold text-primary mb-2">
+                        Carta de Demostración
+                    </h3>
+                    <p class="text-primary/70 text-sm leading-relaxed">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Molestiae delectus cumque est voluptatum fuga atque
+                        voluptas, nisi iste architecto ex quam maiores odio rem
+                        odit fugit facilis eaque laudantium temporibus dolore
+                        qui, saepe dolorum excepturi! Maxime ea nesciunt
+                        voluptate deleniti voluptatem reiciendis quas, fuga non?
+                    </p>
+                </div>
+            </section>
+        </div>
+    </main>
+</Layout>

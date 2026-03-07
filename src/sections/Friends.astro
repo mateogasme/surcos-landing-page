@@ -1,0 +1,105 @@
+---
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+import { Image } from "astro:assets";
+
+import caritasArg from "@/assets/surcos/img/caritas_arg.webp";
+import caritasInt from "@/assets/surcos/img/caritas_int.webp";
+import celam from "@/assets/surcos/img/celam.webp";
+import koinonia from "@/assets/surcos/img/koinonia.webp";
+import movPopulares from "@/assets/surcos/img/mov-populares.webp";
+import scholas from "@/assets/surcos/img/scholas.webp";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const friends = [
+    {
+        name: "Cáritas Argentina",
+        url: "https://caritas.org.ar/",
+        img: caritasArg,
+        span: "col-span-1",
+        altKey: "friends.caritas_arg.alt" as const,
+    },
+    {
+        name: "CELAM",
+        url: "https://celam.org/",
+        img: celam,
+        span: "col-span-1",
+        altKey: "friends.celam.alt" as const,
+    },
+    {
+        name: "Movimientos Populares",
+        url: "https://movpop.org/",
+        img: movPopulares,
+        span: "col-span-2",
+        imgClass: "dark:invert dark:hue-rotate-180",
+        altKey: "friends.mov_populares.alt" as const,
+    },
+    {
+        name: "Servicios Koinonia",
+        url: "https://www.servicioskoinonia.org/",
+        img: koinonia,
+        span: "col-span-2",
+        altKey: "friends.koinonia.alt" as const,
+    },
+    {
+        name: "Cáritas Internacional",
+        url: "https://www.caritas.org/",
+        img: caritasInt,
+        span: "col-span-1",
+        imgClass: "invert dark:invert-0",
+        altKey: "friends.caritas_int.alt" as const,
+    },
+    {
+        name: "Scholas Occurrentes",
+        url: "https://scholasoccurrentes.org/",
+        img: scholas,
+        span: "col-span-1",
+        altKey: "friends.scholas.alt" as const,
+    },
+];
+---
+
+<section class="w-full mt-4 mb-24 px-6 md:px-0" id="friends">
+    <div class="max-w-175 mx-auto">
+        <h2 class="text-2xl font-bold text-primary tracking-tight mb-6">
+            {t("friends.title")}
+        </h2>
+
+        <!-- Bento Table Container -->
+        <div
+            class="bg-white/50 dark:bg-zinc-900/50 backdrop-blur-md border border-primary/10 dark:border-white/10 rounded-2xl overflow-hidden shadow-sm animate-fade-in-up"
+        >
+            <ul class="grid grid-cols-2 md:grid-cols-4 -mb-px -mr-px p-0 m-0 list-none">
+                {
+                    friends.map((friend, index) => (
+                        <li class={friend.span}>
+                            <a
+                                href={friend.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="relative flex items-center justify-center p-8 hover:bg-primary/5 dark:hover:bg-white/5 border-r border-b border-primary/10 dark:border-white/10 transition-colors duration-300 h-35 group w-full"
+                                aria-label={lang === 'es' ? `Visitar sitio de ${friend.name} (se abre en una nueva pestaña)` : `Visit ${friend.name} website (opens in a new tab)`}
+                            >
+                                <!-- Icono de enlace externo superior derecho -->
+                                <div class="absolute top-4 right-4 text-primary/30 opacity-0 group-hover:opacity-100 group-hover:text-primary/70 dark:group-hover:text-white transition-all duration-300 transform translate-y-2 group-hover:translate-y-0" aria-hidden="true">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M15 3h6v6"/>
+                                        <path d="M10 14 21 3"/>
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                    </svg>
+                                </div>
+
+                                <Image
+                                    src={friend.img}
+                                    alt={t(friend.altKey) as string}
+                                    class={`max-w-full max-h-full object-contain transition-all duration-300 transform group-hover:scale-105 ${friend.imgClass || ""}`}
+                                />
+                            </a>
+                        </li>
+                    ))
+                }
+            </ul>
+        </div>
+    </div>
+</section>

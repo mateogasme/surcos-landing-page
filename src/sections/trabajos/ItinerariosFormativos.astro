@@ -1,0 +1,74 @@
+---
+import { getLangFromUrl } from "@/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+
+const content = {
+    es: {
+        title: "Itinerarios y recursos formativos",
+        items: [
+            {
+                title: "Formación Cáritas Perú",
+                desc: "Serie de encuentros y aportes temáticos sobre la comunicación en Cáritas.",
+            },
+            {
+                title: "Crecer desde el trabajo",
+                desc: "Itinerario formativo de adultos para emprendimientos cooperativos. Cáritas Zárate.",
+            },
+            {
+                title: "Referentes de comunicación",
+                desc: "Proceso anual semi presencial para voluntarios de Patagonia Comahue.",
+            },
+            {
+                title: "Voluntariado social",
+                desc: "Capacitación presencial para el voluntariado de Cáritas Zárate Campana.",
+            },
+        ],
+    },
+    en: {
+        title: "Formative itineraries and resources",
+        items: [
+            {
+                title: "Cáritas Peru Training",
+                desc: "Series of meetings and thematic contributions on communication in Cáritas.",
+            },
+            {
+                title: "Growing from Work",
+                desc: "Adult training itinerary for cooperative ventures. Cáritas Zárate.",
+            },
+            {
+                title: "Communication References",
+                desc: "Annual semi-presential process for volunteers of Patagonia Comahue.",
+            },
+            {
+                title: "Social Volunteering",
+                desc: "In-person training for volunteering in Cáritas Zárate Campana.",
+            },
+        ],
+    },
+};
+
+const t = content[lang];
+---
+
+<section>
+    <h2 class="text-xl font-bold text-primary/80 mb-6">
+        {t.title}
+    </h2>
+    <ul
+        class="flex flex-col md:flex-row flex-wrap justify-between gap-6 list-none p-0 m-0"
+    >
+        {
+            t.items.map((item) => (
+                <li class="flex flex-col gap-2 p-8 rounded-2xl bg-white/50 dark:bg-zinc-900/50 border border-primary/10 dark:border-white/10 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 md:w-[calc(50%-0.75rem)] w-full">
+                    <strong class="text-primary/90 leading-snug text-[1.05rem]">
+                        {item.title}
+                    </strong>
+                    <p class="text-[0.95rem] text-primary/70 leading-relaxed font-normal text-pretty m-0">
+                        {item.desc}
+                    </p>
+                </li>
+            ))
+        }
+    </ul>
+</section>

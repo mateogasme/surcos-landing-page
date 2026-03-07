@@ -1,0 +1,29 @@
+---
+export interface Props {
+    title: string;
+    description: string;
+    iconWrapperClasses: string;
+}
+
+const { title, description, iconWrapperClasses } = Astro.props;
+---
+
+<div
+    class="flex flex-col items-center justify-center text-center mb-16 animate-fade-in-up"
+>
+    <div
+        class={`w-16 h-16 flex items-center justify-center rounded-2xl mb-6 border ${iconWrapperClasses}`}
+    >
+        <slot name="icon" />
+    </div>
+    <h1
+        class="text-3xl md:text-4xl font-semibold text-primary/90 mb-4 tracking-tight"
+    >
+        {title}
+    </h1>
+    <p
+        class="text-[1.05rem] text-primary/70 leading-relaxed text-pretty max-w-[550px]"
+    >
+        {description}
+    </p>
+</div>

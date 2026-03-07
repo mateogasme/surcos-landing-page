@@ -1,0 +1,147 @@
+---
+import ServiceCard from "@/components/ServiceCard.astro";
+import { getLangFromUrl } from "@/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+
+const content = {
+    es: {
+        c1_title: "Contenidos educativos",
+        c1_desc:
+            "Te guiamos en la conceptualización y creación de materiales de apoyo de primer nivel, adaptando rigurosamente cada manual o cartilla a los objetivos pedagógicos y a la identidad particular de tu audiencia.",
+        c2_title: "Ecosistemas digitales",
+        c2_desc:
+            "Realizamos la traspolación estratégica de tu material impreso a entornos interactivos digitales. Optimizamos la forma en la que comunicás para expandir tu alcance y asegurar un consumo orgánico de la información.",
+        c3_title: "Gestión editorial completa",
+        c3_desc:
+            "Nos encargamos de todo el ciclo de tu obra literaria pre-impresión. Desde la meticulosa corrección de estilo y maquetación final, hasta la intermediación con imprentas y la gestión legal de derechos y catalogación (ISBN).",
+        c4_title: "Publicaciones institucionales",
+        c4_desc:
+            "Diseñamos piezas clave para la identidad corporativa y operativa de tu organización, estructurando un diseño impecable para memorias anuales, reportes de impacto, documentos técnicos o manuales de procedimientos.",
+    },
+    en: {
+        c1_title: "Educational content",
+        c1_desc:
+            "We guide you in conceptualizing and crafting top-tier support materials, rigorously tailoring each manual or booklet to your pedagogical goals and the unique identity of your audience.",
+        c2_title: "Digital ecosystems",
+        c2_desc:
+            "We strategically transpose your print material into interactive digital environments. We optimize the way you communicate to expand your reach and ensure organic information consumption.",
+        c3_title: "Full editorial management",
+        c3_desc:
+            "We handle the entire pre-press lifecycle of your literary work. From meticulous copyediting and final layout design to liaison with printing presses and legal management of copyright and cataloging (ISBN).",
+        c4_title: "Institutional publications",
+        c4_desc:
+            "We design critical pieces for your organization's corporate identity, structuring an impeccable design for annual reports, impact assessments, technical documents, and procedural manuals.",
+    },
+};
+
+const t = content[lang];
+---
+
+<ul
+    class="flex flex-col md:flex-row flex-wrap justify-center gap-6 list-none p-0 m-0"
+>
+    <!-- Card 1 -->
+    <ServiceCard
+        title={t.c1_title}
+        description={t.c1_desc}
+        iconWrapperClasses="bg-orange-500/10 dark:bg-orange-500/20 text-orange-600 dark:text-orange-400"
+        delay={200}
+    >
+        <svg
+            slot="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+        >
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+            <polyline points="21 15 16 10 5 21"></polyline>
+        </svg>
+    </ServiceCard>
+
+    <!-- Card 2 -->
+    <ServiceCard
+        title={t.c2_title}
+        description={t.c2_desc}
+        iconWrapperClasses="bg-blue-500/10 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400"
+        delay={350}
+    >
+        <svg
+            slot="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-monitor-icon lucide-monitor"
+        >
+            <rect width="20" height="14" x="2" y="3" rx="2"></rect>
+            <line x1="8" x2="16" y1="21" y2="21"></line>
+            <line x1="12" x2="12" y1="17" y2="21"></line>
+        </svg>
+    </ServiceCard>
+
+    <!-- Card 3 -->
+    <ServiceCard
+        title={t.c3_title}
+        description={t.c3_desc}
+        iconWrapperClasses="bg-purple-500/10 dark:bg-purple-500/20 text-purple-600 dark:text-purple-400"
+        delay={500}
+    >
+        <svg
+            slot="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-book-marked-icon lucide-book-marked"
+        >
+            <path d="M10 2v8l3-3 3 3V2"></path>
+            <path
+                d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"
+            ></path>
+        </svg>
+    </ServiceCard>
+
+    <!-- Card 4 -->
+    <ServiceCard
+        title={t.c4_title}
+        description={t.c4_desc}
+        iconWrapperClasses="bg-emerald-500/10 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400"
+        delay={650}
+    >
+        <svg
+            slot="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+        >
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+    </ServiceCard>
+</ul>

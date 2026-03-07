@@ -1,0 +1,113 @@
+---
+import { getLangFromUrl } from "@/i18n/utils";
+import { faqsData } from "@/data/faqs";
+
+const lang = getLangFromUrl(Astro.url);
+const faqs = faqsData[lang];
+---
+
+<div
+    class="flex flex-col gap-4 animate-fade-in-up"
+    style="animation-delay: 200ms;"
+>
+    {
+        faqs.map((faq) => (
+            <details class="faq-detail group rounded-2xl bg-white/50 dark:bg-zinc-900/50 border border-primary/10 dark:border-white/10 shadow-sm transition-all overflow-hidden">
+                <summary class="flex justify-between items-center font-semibold text-primary/90 text-[1.1rem] leading-snug list-none [&::-webkit-details-marker]:hidden p-6 cursor-pointer">
+                    {faq.question}
+                    <span class="faq-icon transition-transform duration-300 opacity-50 ml-4 shrink-0">
+                        <svg
+                            fill="none"
+                            height="24"
+                            shape-rendering="geometricPrecision"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2.5"
+                            viewBox="0 0 24 24"
+                            width="24"
+                        >
+                            <path d="M6 9l6 6 6-6" />
+                        </svg>
+                    </span>
+                </summary>
+                <div
+                    class="faq-content transition-all duration-300 ease-in-out opacity-0 overflow-hidden"
+                    style="max-height: 0px;"
+                >
+                    <div class="px-6 pt-2">
+                        <p class="text-[0.95rem] text-primary/70 leading-relaxed font-normal text-pretty">
+                            {faq.answer}
+                            <br />
+                            <br />
+                        </p>
+                    </div>
+                </div>
+            </details>
+        ))
+    }
+</div>
+
+<style>
+    /* Prevent text selection on summary click and ensure smooth usage */
+    details summary {
+        user-select: none;
+        outline: none;
+    }
+</style>
+
+<script>
+    document.addEventListener("astro:page-load", () => {
+        const detailsElements = document.querySelectorAll(".faq-detail");
+
+        detailsElements.forEach((detail) => {
+            // Prevenir doble inicialización en cambios de idioma (Astro Transitions duplicate listeners)
+            if (detail.hasAttribute("data-faq-init")) return;
+            detail.setAttribute("data-faq-init", "true");
+
+            const summary = detail.querySelector("summary");
+            const content = detail.querySelector(".faq-content") as HTMLElement;
+            const icon = detail.querySelector(".faq-icon") as HTMLElement;
+
+            if (!summary || !content) return;
+
+            summary.addEventListener("click", (e) => {
+                e.preventDefault();
+
+                const isClosing = detail.hasAttribute("open");
+
+                if (isClosing) {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                    void content.offsetHeight;
+                    content.style.maxHeight = "0px";
+                    content.style.opacity = "0";
+                    icon.style.transform = "rotate(0deg)";
+                    detail.classList.remove(
+                        "shadow-md",
+                        "bg-white",
+                        "dark:bg-zinc-900",
+                    );
+                    setTimeout(() => {
+                        detail.removeAttribute("open");
+                    }, 300); // 300ms transition duration
+                } else {
+                    detail.setAttribute("open", "");
+                    detail.classList.add(
+                        "shadow-md",
+                        "bg-white",
+                        "dark:bg-zinc-900",
+                    );
+                    content.style.maxHeight = "0px";
+                    content.style.opacity = "0";
+                    void content.offsetHeight;
+                    content.style.maxHeight = content.scrollHeight + 100 + "px";
+                    content.style.opacity = "1";
+                    icon.style.transform = "rotate(180deg)";
+                    setTimeout(() => {
+                        content.style.maxHeight = "none";
+                    }, 300);
+                }
+            });
+        });
+    });
+</script>

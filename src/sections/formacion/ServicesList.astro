@@ -1,0 +1,112 @@
+---
+import ServiceCard from "@/components/ServiceCard.astro";
+import { getLangFromUrl } from "@/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+
+const content = {
+    es: {
+        c1_title: "Diseño de procesos formativos",
+        c1_desc:
+            "Realizamos el diseño pedagógico y didáctico funcional de itinerarios formativos a medida, elaborando además todos los recursos y herramientas complementarias para su implementación, enfocado a equipos de voluntarios, animación comunitaria y agentes pastorales.",
+        c2_title: "Módulos temáticos",
+        c2_desc:
+            "Brindamos respuestas ágiles a necesidades específicas para contextos organizacionales puntuales. Nuestros módulos fortalecen las prácticas de tu equipo y actualizan el marco conceptual de sus dinámicas diarias.",
+        c3_title: "Cursos y capacitaciones",
+        c3_desc:
+            "Ofrecemos propuestas formativas puntuales en diferentes niveles, diseñadas para otorgar un nuevo horizonte de acción e impulsar prácticas contemporáneas, tomando inspiración en la nueva visión comunitaria y pastoral.",
+    },
+    en: {
+        c1_title: "Design of training processes",
+        c1_desc:
+            "We create custom pedagogical and didactic designs for training itineraries, seamlessly developing all complementary resources required for their implementation. Tailored for volunteer teams, community animation, and pastoral agents.",
+        c2_title: "Thematic modules",
+        c2_desc:
+            "We offer agile responses to distinct needs during pivotal organizational moments. Our modules are crafted to strengthen your team's practices and modernize the conceptual framework governing their daily dynamics.",
+        c3_title: "Courses & workshops",
+        c3_desc:
+            "We provide specialized training proposals at various levels, designed to unveil a fresh horizon of action and stimulate contemporary practices, drawing inspiration from renewed community and pastoral visions.",
+    },
+};
+
+const t = content[lang];
+---
+
+<ul
+    class="flex flex-col md:flex-row flex-wrap justify-center gap-6 list-none p-0 m-0"
+>
+    <!-- Card 1 -->
+    <ServiceCard
+        title={t.c1_title}
+        description={t.c1_desc}
+        iconWrapperClasses="bg-orange-500/10 dark:bg-orange-500/20 text-orange-600 dark:text-orange-400"
+        delay={200}
+    >
+        <svg
+            slot="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+        >
+            <path d="M12 20h9"></path>
+            <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4 Z"></path>
+        </svg>
+    </ServiceCard>
+
+    <!-- Card 2 -->
+    <ServiceCard
+        title={t.c2_title}
+        description={t.c2_desc}
+        iconWrapperClasses="bg-amber-500/10 dark:bg-amber-500/20 text-amber-600 dark:text-amber-400"
+        delay={350}
+    >
+        <svg
+            slot="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+        >
+            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+            <polyline points="2 12 12 17 22 12"></polyline>
+            <polyline points="2 17 12 22 22 17"></polyline>
+        </svg>
+    </ServiceCard>
+
+    <!-- Card 3 -->
+    <ServiceCard
+        title={t.c3_title}
+        description={t.c3_desc}
+        iconWrapperClasses="bg-blue-500/10 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400"
+        delay={500}
+        wFull={true}
+    >
+        <svg
+            slot="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+        >
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+            <path d="M2 12h20"></path>
+        </svg>
+    </ServiceCard>
+</ul>

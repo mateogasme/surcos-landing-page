@@ -1,0 +1,19 @@
+---
+const { href, class: className, ...props } = Astro.props;
+
+const baseClass =
+    "flex justify-center items-center w-full sm:w-auto px-8 py-3 bg-primary text-secondary font-medium text-[0.875rem] rounded-lg hover:bg-primary/90 hover:shadow-lg active:scale-95 transition-all duration-200 ease-in-out shadow-md cursor-pointer";
+const combinedClass = className ? `${baseClass} ${className}` : baseClass;
+---
+
+{
+    href ? (
+        <a href={href} class={combinedClass} {...props}>
+            <slot />
+        </a>
+    ) : (
+        <button class={combinedClass} {...props}>
+            <slot />
+        </button>
+    )
+}
