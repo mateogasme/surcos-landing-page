@@ -15,7 +15,7 @@ const faqs = faqsData[lang];
             <details class="faq-detail group rounded-2xl bg-white/50 dark:bg-zinc-900/50 border border-primary/10 dark:border-white/10 shadow-sm transition-all overflow-hidden">
                 <summary class="flex justify-between items-center font-semibold text-primary/90 text-[1.1rem] leading-snug list-none [&::-webkit-details-marker]:hidden p-6 cursor-pointer">
                     {faq.question}
-                    <span class="faq-icon transition-transform duration-300 opacity-50 ml-4 shrink-0">
+                    <span class="faq-icon transition-transform duration-200 opacity-50 ml-4 shrink-0">
                         <svg
                             fill="none"
                             height="24"
@@ -32,7 +32,7 @@ const faqs = faqsData[lang];
                     </span>
                 </summary>
                 <div
-                    class="faq-content transition-all duration-300 ease-in-out opacity-0 overflow-hidden"
+                    class="faq-content transition-all duration-200 ease-in-out opacity-0 overflow-hidden"
                     style="max-height: 0px;"
                 >
                     <div class="px-6 pt-2">
@@ -89,7 +89,7 @@ const faqs = faqsData[lang];
                     );
                     setTimeout(() => {
                         detail.removeAttribute("open");
-                    }, 300); // 300ms transition duration
+                    }, 200); // 200ms transition duration
                 } else {
                     detail.setAttribute("open", "");
                     detail.classList.add(
@@ -105,7 +105,7 @@ const faqs = faqsData[lang];
                     icon.style.transform = "rotate(180deg)";
                     setTimeout(() => {
                         content.style.maxHeight = "none";
-                    }, 300);
+                    }, 200);
                 }
             });
         });

@@ -78,11 +78,11 @@ const friends = [
                                 href={friend.url}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                class="relative flex items-center justify-center p-8 hover:bg-primary/5 dark:hover:bg-white/5 border-r border-b border-primary/10 dark:border-white/10 transition-colors duration-300 h-35 group w-full"
+                                class="relative flex items-center justify-center p-8 hover:bg-primary/5 dark:hover:bg-white/5 border-r border-b border-primary/10 dark:border-white/10 transition-colors duration-200 h-35 group w-full"
                                 aria-label={lang === 'es' ? `Visitar sitio de ${friend.name} (se abre en una nueva pestaña)` : `Visit ${friend.name} website (opens in a new tab)`}
                             >
                                 <!-- Icono de enlace externo superior derecho -->
-                                <div class="absolute top-4 right-4 text-primary/30 opacity-0 group-hover:opacity-100 group-hover:text-primary/70 dark:group-hover:text-white transition-all duration-300 transform translate-y-2 group-hover:translate-y-0" aria-hidden="true">
+                                <div class="absolute top-4 right-4 text-primary/30 opacity-0 group-hover:opacity-100 group-hover:text-primary/70 dark:group-hover:text-white transition-all duration-200 transform translate-y-2 group-hover:translate-y-0" aria-hidden="true">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                         <path d="M15 3h6v6"/>
                                         <path d="M10 14 21 3"/>
@@ -93,7 +93,7 @@ const friends = [
                                 <Image
                                     src={friend.img}
                                     alt={t(friend.altKey) as string}
-                                    class={`max-w-full max-h-full object-contain transition-all duration-300 transform group-hover:scale-105 ${friend.imgClass || ""}`}
+                                    class={`max-w-full max-h-full object-contain transition-all duration-200 transform group-hover:scale-105 ${friend.imgClass || ""}`}
                                 />
                             </a>
                         </li>
