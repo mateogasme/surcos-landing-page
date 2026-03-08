@@ -9,6 +9,7 @@ import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 import Footer from "@/sections/Footer.astro";
 import Header from "@/sections/Header.astro";
 import SpeedInsights from "@vercel/speed-insights/astro";
+import Analytics from "@vercel/analytics/astro";
 
 export interface Props {
 	title?: string;
@@ -160,6 +161,7 @@ const organizationSchema = JSON.stringify({
 
 		<Footer />
 		<SpeedInsights />
+		<Analytics />
 	</body>
 </html>
 
