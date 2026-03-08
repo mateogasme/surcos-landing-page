@@ -8,13 +8,13 @@ const currentYear = new Date().getFullYear();
 ---
 
 <footer
-    class="w-full mt-auto py-8 px-6 md:px-0 border-t border-primary/5 dark:border-white/5 bg-secondary shrink-0"
+    class="w-full mt-auto py-8 px-12 md:px-0 border-t border-primary/5 dark:border-white/5 bg-secondary shrink-0"
 >
     <div
-        class="max-w-175 mx-auto flex flex-col md:flex-row items-center justify-between gap-6"
+        class="max-w-175 mx-auto flex flex-col md:flex-row items-center justify-between gap-4"
     >
         <p
-            class="text-[0.8rem] text-primary/70 dark:text-white/60 font-medium m-0 order-2 md:order-1"
+            class="text-xs text-primary/70 dark:text-white/60 font-medium m-0 order-2 md:order-1"
         >
             &copy; {currentYear}
             <span class="font-semibold text-primary dark:text-white"
@@ -27,12 +27,12 @@ const currentYear = new Date().getFullYear();
             class="order-1 md:order-2"
         >
             <ul
-                class="flex flex-wrap items-center justify-center md:justify-end gap-x-5 gap-y-2 list-none p-0 m-0"
+                class="flex flex-wrap items-center justify-center md:justify-end gap-x-4 gap-y-1 list-none p-0 m-0"
             >
                 <li>
                     <a
                         href={getRelativeLocaleUrl(lang, "/")}
-                        class="text-[0.8rem] text-primary/70 hover:text-primary transition-colors font-medium"
+                        class="text-xs text-primary/70 hover:text-primary transition-colors font-medium hover:underline"
                     >
                         {t("nav.home")}
                     </a>
@@ -40,7 +40,7 @@ const currentYear = new Date().getFullYear();
                 <li>
                     <a
                         href={getRelativeLocaleUrl(lang, "consultoria")}
-                        class="text-[0.8rem] text-primary/70 hover:text-primary transition-colors font-medium"
+                        class="text-xs text-primary/70 hover:text-primary transition-colors font-medium hover:underline"
                     >
                         {t("nav.consulting")}
                     </a>
@@ -48,7 +48,7 @@ const currentYear = new Date().getFullYear();
                 <li>
                     <a
                         href={getRelativeLocaleUrl(lang, "formacion")}
-                        class="text-[0.8rem] text-primary/70 hover:text-primary transition-colors font-medium"
+                        class="text-xs text-primary/70 hover:text-primary transition-colors font-medium hover:underline"
                     >
                         {t("nav.training")}
                     </a>
@@ -56,7 +56,7 @@ const currentYear = new Date().getFullYear();
                 <li>
                     <a
                         href={getRelativeLocaleUrl(lang, "publicaciones")}
-                        class="text-[0.8rem] text-primary/70 hover:text-primary transition-colors font-medium"
+                        class="text-xs text-primary/70 hover:text-primary transition-colors font-medium hover:underline"
                     >
                         {t("nav.publications")}
                     </a>
@@ -64,7 +64,7 @@ const currentYear = new Date().getFullYear();
                 <li>
                     <a
                         href={getRelativeLocaleUrl(lang, "trabajos")}
-                        class="text-[0.8rem] text-primary/70 hover:text-primary transition-colors font-medium"
+                        class="text-xs text-primary/70 hover:text-primary transition-colors font-medium hover:underline"
                     >
                         {t("nav.works")}
                     </a>
@@ -72,7 +72,7 @@ const currentYear = new Date().getFullYear();
                 <li>
                     <a
                         href="#about"
-                        class="text-[0.8rem] text-primary/70 hover:text-primary transition-colors font-medium"
+                        class="text-xs text-primary/70 hover:text-primary transition-colors font-medium hover:underline"
                     >
                         {t("hero.about")}
                     </a>
@@ -80,7 +80,7 @@ const currentYear = new Date().getFullYear();
                 <li>
                     <a
                         href="#contact"
-                        class="text-[0.8rem] text-primary/70 hover:text-primary transition-colors font-medium"
+                        class="text-xs text-primary/70 hover:text-primary transition-colors font-medium hover:underline"
                     >
                         {t("contact.title")}
                     </a>

@@ -121,11 +121,11 @@ export const ui = {
         'meta.faq.title': 'Frequently Asked Questions | Surcos',
         'meta.faq.description': 'Answers about Equipo Surcos consulting, training, and publications services. How we work and what you can expect from us.',
         // Partner organization logo alt text
-        'friends.caritas_arg.alt': 'Cáritas Argentina - Equipo Surcos partner organization',
-        'friends.caritas_int.alt': 'Cáritas Internationalis - Equipo Surcos partner organization',
-        'friends.celam.alt': 'CELAM - Latin American Episcopal Council - Equipo Surcos partner organization',
-        'friends.mov_populares.alt': 'Movimientos Populares - Equipo Surcos partner organization',
-        'friends.koinonia.alt': 'Servicios Koinonia - Equipo Surcos partner organization',
-        'friends.scholas.alt': 'Scholas Occurrentes - Equipo Surcos partner organization',
+        'friends.caritas_arg.alt': 'Cáritas Argentina - Surcos partner organization',
+        'friends.caritas_int.alt': 'Cáritas Internationalis - Surcos partner organization',
+        'friends.celam.alt': 'CELAM - Latin American Episcopal Council - Surcos partner organization',
+        'friends.mov_populares.alt': 'Movimientos Populares - Surcos partner organization',
+        'friends.koinonia.alt': 'Servicios Koinonia - Surcos partner organization',
+        'friends.scholas.alt': 'Scholas Occurrentes - Surcos partner organization',
     },
 } as const;
