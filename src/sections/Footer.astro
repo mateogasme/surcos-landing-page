@@ -13,14 +13,15 @@ const currentYear = new Date().getFullYear();
     <div
         class="max-w-175 mx-auto flex flex-col md:flex-row items-center justify-between gap-4"
     >
-        <p
-            class="text-xs text-primary/70 dark:text-white/60 font-medium m-0 order-2 md:order-1"
+        <a
+            href={getRelativeLocaleUrl(lang, "/")}
+            class="text-xs text-primary/70 dark:text-white/60 font-medium m-0 order-2 md:order-1 hover:underline"
         >
             &copy; {currentYear}
-            <span class="font-semibold text-primary dark:text-white"
-                >Equipo Surcos</span
-            >
-        </p>
+            <span class="font-semibold text-primary dark:text-white">
+                Equipo Surcos
+            </span>
+        </a>
 
         <nav
             aria-label="Navegación de pie de página"
