@@ -17,7 +17,7 @@ const personSchema = JSON.stringify({
 	"@context": "https://schema.org",
 	"@type": "Person",
 	name: "Juan Pablo Gasme",
-	jobTitle: t("founder.subtitle"),
+	jobTitle: t("founder.title") as string,
 	worksFor: {
 		"@type": "Organization",
 		name: "Equipo Surcos",
@@ -54,11 +54,11 @@ const personSchema = JSON.stringify({
 	description={t("meta.home.description") as string}
 >
 	<script type="application/ld+json" slot="jsonld" set:html={personSchema} />
-	<main class="w-full flex justify-center items-center flex-col">
+	<div class="w-full flex justify-center items-center flex-col">
 		<Hero />
 		<About />
 		<Friends />
 		<Founder />
 		<Contact />
-	</main>
+	</div>
 </Layout>

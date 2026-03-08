@@ -11,7 +11,10 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<section class="w-full mt-12 md:mt-16 px-6 md:px-0">
+<section
+    class="w-full mt-12 md:mt-16 px-6 md:px-0"
+    aria-labelledby="hero-heading"
+>
     <div class="max-w-160 mx-auto flex flex-col gap-6">
         <Image
             src={equipoSurcos}
@@ -20,6 +23,7 @@ const t = useTranslations(lang);
             loading="eager"
         />
         <h1
+            id="hero-heading"
             class="text-[16px] md:text-[17px] text-primary/80 font-normal leading-relaxed text-center w-[90%] mx-auto animate-fade-in-up animate-delay-200"
             set:html={t("hero.text")}
         />

@@ -100,7 +100,10 @@ const toggleUrl = getRelativeLocaleUrl(targetLang, route);
             </ul>
         </nav>
 
-        <div class="flex items-center gap-2">
+        <nav
+            aria-label={lang === "es" ? "Ajustes" : "Settings"}
+            class="flex items-center gap-2"
+        >
             <!-- Botón de Idioma -->
             <div class="relative group/lang flex">
                 <a
@@ -136,7 +139,7 @@ const toggleUrl = getRelativeLocaleUrl(targetLang, route);
                 <MoonIcon id="moon-icon" class="block" aria-hidden="true" />
                 <SunIcon id="sun-icon" class="hidden" aria-hidden="true" />
             </button>
-        </div>
+        </nav>
     </div>
 </header>
 
