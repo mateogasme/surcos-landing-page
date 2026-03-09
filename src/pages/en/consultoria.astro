@@ -1,9 +1,9 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import Contact from "@/sections/Contact.astro";
 
-import ConsultoriaHeader from "@/sections/consultoria/Header.astro";
-import ConsultoriaServices from "@/sections/consultoria/ServicesList.astro";
+import ConsultingHeader from "@/sections/consulting/Header.astro";
+import ConsultingServices from "@/sections/consulting/ServicesList.astro";
+import Contact from "@/sections/Contact.astro";
 
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 
@@ -44,8 +44,8 @@ const breadcrumbSchema = JSON.stringify({
     />
     <main class="w-full flex justify-center items-center flex-col px-6 md:px-0">
         <div class="max-w-175 w-full mt-12 mb-12">
-            <ConsultoriaHeader />
-            <ConsultoriaServices />
+            <ConsultingHeader />
+            <ConsultingServices />
         </div>
         <Contact />
     </main>

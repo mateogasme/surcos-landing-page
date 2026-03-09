@@ -2,10 +2,10 @@
 import Layout from "@/layouts/Layout.astro";
 import Contact from "@/sections/Contact.astro";
 
-import TrabajosHeader from "@/sections/trabajos/Header.astro";
-import ProyectosEditoriales from "@/sections/trabajos/ProyectosEditoriales.astro";
-import ItinerariosFormativos from "@/sections/trabajos/ItinerariosFormativos.astro";
-import EdicionesLibros from "@/sections/trabajos/EdicionesLibros.astro";
+import ProjectsHeader from "@/sections/projects/Header.astro";
+import EditorialProjects from "@/sections/projects/EditorialProjects.astro";
+import TrainingPaths from "@/sections/projects/TrainingPaths.astro";
+import BookEditions from "@/sections/projects/BookEditions.astro";
 
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 
@@ -46,14 +46,14 @@ const breadcrumbSchema = JSON.stringify({
     />
     <main class="w-full flex justify-center items-center flex-col px-6 md:px-0">
         <div class="max-w-175 w-full mt-12 mb-12">
-            <TrabajosHeader />
+            <ProjectsHeader />
             <div
                 class="flex flex-col gap-16 animate-fade-in-up"
                 style="animation-delay: 200ms;"
             >
-                <ProyectosEditoriales />
-                <ItinerariosFormativos />
-                <EdicionesLibros />
+                <EditorialProjects />
+                <TrainingPaths />
+                <BookEditions />
             </div>
         </div>
         <Contact />

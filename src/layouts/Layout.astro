@@ -29,7 +29,6 @@ const SITE_URL = import.meta.env.SITE ?? "https://equiposurcos.com.ar";
 
 const canonicalUrl = new URL(Astro.url.pathname, SITE_URL).toString();
 
-// Compute hreflang alternate URLs
 const pathname = Astro.url.pathname;
 const esPath = pathname.startsWith("/en")
 	? pathname.replace(/^\/en/, "") || "/"
