@@ -1,11 +1,10 @@
 ---
 export interface Props {
     title: string;
-    description: string;
     iconWrapperClasses: string;
 }
 
-const { title, description, iconWrapperClasses } = Astro.props;
+const { title, iconWrapperClasses } = Astro.props;
 ---
 
 <div
@@ -21,9 +20,4 @@ const { title, description, iconWrapperClasses } = Astro.props;
     >
         {title}
     </h1>
-    <p
-        class="text-[1.05rem] text-primary/70 leading-relaxed text-pretty max-w-137.5"
-    >
-        {description}
-    </p>
 </div>

@@ -2,45 +2,45 @@ export const faqsData = {
     es: [
         {
             question: "¿En qué consiste el trabajo de consultoría de Surcos?",
-            answer: "Acompañamos a instituciones y equipos en el diseño, planificación y evaluación de sus proyectos. Brindamos asesoramiento para lograr un impacto positivo y mejorar la toma de decisiones, adaptándonos siempre a tu contexto y realidad institucional.",
+            answer: "Como referentes en consultoría educativa en Argentina, acompañamos a instituciones en el diseño, planificación estratégica y evaluación de proyectos. Brindamos asesoramiento externo para lograr un impacto social a largo plazo y mejorar la toma de decisiones, adaptándonos al contexto institucional que transitás día a día.",
         },
         {
             question: "¿Para quiénes están pensados los servicios formativos?",
-            answer: "Nuestras capacitaciones y procesos formativos están dirigidos a educadores, referentes comunitarios, agentes pastorales, equipos directivos, cooperativas y voluntarios que buscan actualizar sus estrategias y mejorar su capacidad de respuesta a los desafíos actuales.",
+            answer: "Nuestra vasta experiencia en formación para organizaciones sociales está dirigida a educadores, referentes territoriales y comunitarios, incluyendo la capacitación de equipos pastorales y directivos. Están diseñados para liderazgos que buscan actualizar estrategias pedagógicas y mejorar su capacidad de respuesta a los desafíos del siglo XXI.",
         },
         {
             question: "¿Cómo es el proceso de creación de contenidos educativos?",
-            answer: "Desarrollamos materiales didácticos, guías, manuales y recursos interactivos desde cero o adaptamos tu contenido actual. Nuestro equipo se encarga de la curación, diseño y adaptación pedagógica para cada tipo de público, tanto en formatos impresos como digitales.",
+            answer: "Como editorial educativa en Argentina, ideamos materiales didácticos, guías de estudio y manuales pedagógicos institucionales desde cero, o mejoramos contenidos existentes. Nuestro equipo se encarga de la curación académica, diseño visual y adaptación didáctica, distribuyendo productos de excelencia en formatos impresos y fascinantes plataformas digitales.",
         },
         {
             question: "¿Brindan servicios para instituciones de otros países?",
-            answer: "¡Sí! Si bien estamos en Argentina, trabajamos activamente y de manera remota con organizaciones y organizaciones en toda América Latina (como Cáritas en Perú, CELAM, entre otros) e incluso en Europa. Las distancias no son una limitación para nuestro equipo.",
+            answer: "¡Absolutamente! Brindamos nuestros servicios de planificación estratégica para organizaciones sociales y asesoramiento pastoral institucional en red con fundaciones y escuelas en toda América Latina. Hoy, las barreras geográficas no representan ninguna limitación para el enorme alcance, eficacia y acompañamiento cotidiano de nuestro experimentado equipo de consultores.",
         },
         {
             question: "¿Qué alcance tiene la 'Gestión editorial completa'?",
-            answer: "Nos encargamos de todo el flujo de trabajo pre-impresión: desde la revisión y corrección de estilo, pasando por la maquetación y diseño, hasta la gestión de ISBN y la preparación final para imprentas o plataformas digitales.",
+            answer: "Como renombrada editorial educativa en Argentina, cubrimos todo el flujo de pre-impresión institucional. Este cuidado va desde la revisión académica, corrección ortotipográfica y diseño estructural de materiales pedagógicos institucionales, hasta la gestión legal del registro ISBN y la preparación final para imprentas físicas o medios digitales.",
         },
     ],
     en: [
         {
             question: "What does Surcos' consulting work involve?",
-            answer: "We accompany institutions and teams in the design, planning, and evaluation of their projects. We provide advice to achieve a positive impact and improve decision-making, always adapting to your context and institutional reality.",
+            answer: "As leading references in educational consulting in Latin America, we accompany institutions in the precise design, strategic planning, and evaluation of projects. We provide expert external advisory to achieve long-term social impact and significantly improve decision-making, adapting compassionately to your unique institutional reality.",
         },
         {
             question: "Who are the training services designed for?",
-            answer: "Our training courses and formative processes are aimed at educators, community leaders, pastoral agents, management teams, cooperatives, and volunteers seeking to update their strategies and improve their response capacity to current challenges.",
+            answer: "Leveraging our experience in training for social organizations, our courses empower educators, grassroots leaders, and the comprehensive training of pastoral teams. They are specially designed for leadership roles seeking to update pedagogical strategies and improve their critical response capacity toward twenty-first-century challenges.",
         },
         {
             question: "What is the process of creating educational materials like?",
-            answer: "We develop didactic materials, guides, manuals, and interactive resources from scratch or adapt your existing content. Our team handles curation, design, and pedagogical adaptation for each type of audience, both in physical and digital formats.",
+            answer: "As a top educational publisher in Latin America, we conceive didactic materials, study guides, and institutional pedagogical materials from absolute scratch, or enhance existing content. Our team comprehensively handles academic curation, elegant visual design, and didactic adaptation, delivering marvelous products in physical print and digital platforms.",
         },
         {
             question: "Do you provide services for institutions outside Argentina?",
-            answer: "Yes! Although we are based in Argentina, we actively work remotely with organizations throughout Latin America (such as Caritas Peru, CELAM) and even Europe. Distances are not a limitation for our team.",
+            answer: "Absolutely! We proudly provide our services in strategic planning for social organizations and profound institutional pastoral advisory remotely alongside foundations across Latin America. Today, traditional geographical borders do not represent any limitation to the massive reach, proven effectiveness, and warm accompaniment of our experienced team.",
         },
         {
             question: "What does 'Full editorial management' cover?",
-            answer: "We handle the entire pre-press workflow: from copy editing and proofreading, through layout and design, to ISBN management and final preparation for print or digital platforms.",
+            answer: "As a renowned educational publisher in Latin America, we direct the entire pre-press literary workflow. This meticulous care ranges from initial academic review and grammatical polishing to the visual design of institutional pedagogical materials. It also encompasses ISBN registration and technical preparation for physical printing or digital dissemination.",
         },
     ],
 } as const;

@@ -7,13 +7,9 @@ const lang = getLangFromUrl(Astro.url);
 const content = {
     es: {
         title: "Trabajos destacados",
-        description:
-            "Explorá una selección curada de proyectos editoriales trascendentes, planes formativos a medida y obras exclusivas desarrolladas por nuestro equipo en los últimos años.",
     },
     en: {
         title: "Featured Works",
-        description:
-            "Explore a curated selection of transcendent editorial projects, bespoke training plans, and exclusive works developed by our team in recent years.",
     },
 };
 
@@ -22,7 +18,6 @@ const t = content[lang];
 
 <PageHeader
     title={t.title}
-    description={t.description}
     iconWrapperClasses="bg-orange-500/10 dark:bg-orange-500/20 text-orange-600 dark:text-orange-400 border-orange-500/20"
 >
     <svg

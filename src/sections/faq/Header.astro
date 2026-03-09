@@ -7,13 +7,9 @@ const lang = getLangFromUrl(Astro.url);
 const content = {
     es: {
         title: "Preguntas frecuentes",
-        description:
-            "Resolvemos algunas de las dudas más comunes sobre nuestra forma de trabajar, nuestros servicios y el acompañamiento que brindamos.",
     },
     en: {
         title: "Frequently Asked Questions",
-        description:
-            "We resolve some of the most common doubts about how we work, our services, and the support we provide.",
     },
 };
 
@@ -22,7 +18,6 @@ const t = content[lang];
 
 <PageHeader
     title={t.title}
-    description={t.description}
     iconWrapperClasses="bg-zinc-500/10 dark:bg-zinc-500/20 text-zinc-600 dark:text-zinc-400 border-zinc-500/20"
 >
     <svg

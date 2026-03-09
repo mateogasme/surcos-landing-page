@@ -7,13 +7,9 @@ const lang = getLangFromUrl(Astro.url);
 const content = {
     es: {
         title: "Consultoría",
-        description:
-            "Colaboramos con vos aportando perspectivas frescas, ideas innovadoras y herramientas de gestión eficaces. Nuestro objetivo es fortalecer las capacidades de tu organización y facilitar nuevas y mejores dinámicas de trabajo.",
     },
     en: {
         title: "Strategic Consulting",
-        description:
-            "We accompany you through the design, execution, and continuous evaluation of your projects, offering the strategic insight needed to guarantee a transformative and lasting impact.",
     },
 };
 
@@ -22,7 +18,6 @@ const t = content[lang];
 
 <PageHeader
     title={t.title}
-    description={t.description}
     iconWrapperClasses="bg-blue-500/10 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400 border-blue-500/20"
 >
     <svg
