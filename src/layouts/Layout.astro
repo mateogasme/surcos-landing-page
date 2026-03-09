@@ -66,17 +66,14 @@ const organizationSchema = JSON.stringify({
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="author" content="Equipo Surcos" />
 
-		<!-- Primary SEO -->
 		<title>{resolvedTitle}</title>
 		<meta name="description" content={resolvedDescription} />
 		<link rel="canonical" href={canonicalUrl} />
 
-		<!-- hreflang alternates -->
 		<link rel="alternate" hreflang="es" href={esUrl} />
 		<link rel="alternate" hreflang="en" href={enUrl} />
 		<link rel="alternate" hreflang="x-default" href={esUrl} />
 
-		<!-- Open Graph -->
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content={canonicalUrl} />
 		<meta property="og:title" content={resolvedTitle} />
@@ -89,14 +86,12 @@ const organizationSchema = JSON.stringify({
 		<meta property="og:locale" content={ogLocale} />
 		<meta property="og:locale:alternate" content={ogLocaleAlternate} />
 
-		<!-- Twitter Card -->
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content={resolvedTitle} />
 		<meta name="twitter:description" content={resolvedDescription} />
 		<meta name="twitter:image" content={`${SITE_URL}${ogImage}`} />
 		<meta name="twitter:image:alt" content={resolvedTitle} />
 
-		<!-- Theme color -->
 		<meta
 			name="theme-color"
 			media="(prefers-color-scheme: light)"
@@ -108,13 +103,10 @@ const organizationSchema = JSON.stringify({
 			content="#131313"
 		/>
 
-		<!-- Favicon -->
 		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
-		<!-- JSON-LD: Organization (global) -->
 		<script type="application/ld+json" set:html={organizationSchema} />
 
-		<!-- Slot for per-page JSON-LD -->
 		<slot name="jsonld" />
 
 		<ClientRouter />
@@ -145,10 +137,8 @@ const organizationSchema = JSON.stringify({
 				window.localStorage.setItem("theme", theme);
 			}
 
-			// Aplicar tema en carga inicial
 			applyTheme();
 
-			// Re-aplicar tema después de navegación con View Transitions (cambio de idioma, etc.)
 			document.addEventListener("astro:after-swap", applyTheme);
 		</script>
 	</head>
@@ -161,7 +151,6 @@ const organizationSchema = JSON.stringify({
 
 		<Footer />
 
-		<!-- Vercel -->
 		<SpeedInsights />
 		<Analytics />
 	</body>

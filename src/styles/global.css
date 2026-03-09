@@ -1,7 +1,6 @@
 @import "tailwindcss";
 @import "tailwind-animations";
 
-/* Configurar dark mode por clase en lugar de prefers-color-scheme */
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
@@ -37,7 +36,6 @@
     }
 }
 
-/* Prevención de scroll del body con modal abierto, reteniendo el espacio de la barra (Layout shift prevention) */
 @supports (scrollbar-gutter: stable) {
     html {
         scrollbar-gutter: stable;
