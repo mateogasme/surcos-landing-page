@@ -20,7 +20,7 @@ La aplicación aprovecha un stack moderno de desarrollo web diseñado para la ve
 
 Asegúrate de tener instalado lo siguiente en tu entorno de desarrollo local:
 
-* **Node.js**: `v18.17.1` o superior (v20+ recomendado)
+* **Node.js**: `v20.11.1` o superior (v20+ recomendado)
 * **npm**: `v9.x` o superior (o gestor de paquetes equivalente)
 
 ## 🛠️ Instalación y Desarrollo Local
