@@ -152,6 +152,19 @@ const organizationSchema = JSON.stringify({
 
 		<SpeedInsights />
 		<Analytics />
+
+		<script is:inline>
+			const msg =
+				"%c website made by %c Mateo Gasme %c mate.gasme@gmail.com ";
+			const s1 =
+				"color: #999; background: #222; border-radius: 4px 0 0 4px; padding: 4px 8px; font-family: monospace; font-size: 11px;";
+			const s2 =
+				"color: #eee; background: #333; padding: 4px 8px; font-family: monospace; font-size: 11px; font-weight: 500;";
+			const s3 =
+				"color: #999; background: #111; border-radius: 0 4px 4px 0; padding: 4px 8px; font-family: monospace; font-size: 11px;";
+
+			console.log(msg, s1, s2, s3);
+		</script>
 	</body>
 </html>
 
