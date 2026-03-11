@@ -35,7 +35,7 @@ export const ui = {
     'cards.vision.title': 'Hacia dónde orientamos nuestra mirada',
     'cards.vision.content':
       'Creemos que es el tiempo oportuno para promover cambios positivos y duraderos en el modo de vivir juntos y transformar nuestra realidad. Los urgentes desafíos requieren propuestas audaces hacia una fecundidad solidaria, el desarrollo humano integral y la consolidación de la gestión de proyectos comunitarios para asegurar la paz.',
-    'founder.title': 'Fundador y Coordinador de Surcos',
+    'founder.title': 'Juan Pablo Gasme',
     'founder.p1':
       'Juan Pablo Gasme es Profesor de Filosofía y Ciencias de la Educación, con orientación en Pastoral Juvenil (Instituto Superior del Profesorado "Don Bosco" – CESBA, Almagro).',
     'founder.p2':
@@ -117,7 +117,7 @@ export const ui = {
     'cards.vision.title': 'Where we orient our gaze',
     'cards.vision.content':
       'We deeply believe it is time to promote positive, lasting changes in our ways of living and actively transform our reality. Pressing challenges require hopeful proposals leading toward neighborhood solidarity, integral human development, and the sturdiest community project management ensuring sustainable social peace.',
-    'founder.title': 'Founder and Coordinator of Surcos',
+    'founder.title': 'Juan Pablo Gasme',
     'founder.p1':
       'Juan Pablo Gasme is a Professor of Philosophy and Educational Sciences, specializing in Youth Ministry (Instituto Superior del Profesorado "Don Bosco" – CESBA, Almagro).',
     'founder.p2':
