@@ -1,19 +1,19 @@
 ---
-const { href, class: className, ...props } = Astro.props;
+const { href, class: className, ...props } = Astro.props
 
 const baseClass =
-    "flex justify-center items-center w-full sm:w-auto px-8 py-3 bg-transparent border border-primary/20 text-primary font-medium text-[0.875rem] rounded-lg hover:bg-primary/5 hover:border-primary/40 hover:shadow-lg active:scale-95 transition-all duration-200 ease-in-out cursor-pointer";
-const combinedClass = className ? `${baseClass} ${className}` : baseClass;
+  'flex justify-center items-center w-full sm:w-auto px-8 py-3 bg-transparent border border-primary/20 text-primary font-medium text-[0.875rem] rounded-lg hover:bg-primary/5 hover:border-primary/40 hover:shadow-lg active:scale-95 transition-all duration-200 ease-in-out cursor-pointer'
+const combinedClass = className ? `${baseClass} ${className}` : baseClass
 ---
 
 {
-    href ? (
-        <a href={href} class={combinedClass} {...props}>
-            <slot />
-        </a>
-    ) : (
-        <button class={combinedClass} {...props}>
-            <slot />
-        </button>
-    )
+  href ? (
+    <a href={href} class={combinedClass} {...props}>
+      <slot />
+    </a>
+  ) : (
+    <button class={combinedClass} {...props}>
+      <slot />
+    </button>
+  )
 }

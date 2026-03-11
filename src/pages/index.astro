@@ -1,64 +1,61 @@
 ---
-import About from "@/sections/About.astro";
-import Contact from "@/sections/Contact.astro";
-import Founder from "@/sections/Founder.astro";
-import Friends from "@/sections/Friends.astro";
-import Hero from "@/sections/Hero.astro";
+import About from '@/sections/About.astro'
+import Contact from '@/sections/Contact.astro'
+import Founder from '@/sections/Founder.astro'
+import Friends from '@/sections/Friends.astro'
+import Hero from '@/sections/Hero.astro'
 
-import Layout from "@/layouts/Layout.astro";
-import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+import Layout from '@/layouts/Layout.astro'
+import { getLangFromUrl, useTranslations } from '@/i18n/utils'
 
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
 
-const SITE_URL = import.meta.env.SITE ?? "https://equiposurcos.com.ar";
+const SITE_URL = import.meta.env.SITE ?? 'https://equiposurcos.com.ar'
 
 const personSchema = JSON.stringify({
-	"@context": "https://schema.org",
-	"@type": "Person",
-	name: "Juan Pablo Gasme",
-	jobTitle: t("founder.title") as string,
-	worksFor: {
-		"@type": "Organization",
-		name: "Equipo Surcos",
-		url: SITE_URL,
-	},
-	affiliation: [
-		{
-			"@type": "Organization",
-			name: "Cáritas Argentina",
-			url: "https://caritas.org.ar/",
-		},
-		{
-			"@type": "Organization",
-			name: "Fundación Educación y Misión",
-		},
-		{
-			"@type": "Organization",
-			name: "Cáritas Internationalis",
-			url: "https://www.caritas.org/",
-		},
-	],
-	knowsAbout: [
-		"Consultoría educativa",
-		"Pastoral juvenil",
-		"Desarrollo comunitario",
-		"Proyectos sociales",
-	],
-	url: SITE_URL,
-});
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Juan Pablo Gasme',
+  jobTitle: t('founder.title') as string,
+  worksFor: {
+    '@type': 'Organization',
+    name: 'Equipo Surcos',
+    url: SITE_URL,
+  },
+  affiliation: [
+    {
+      '@type': 'Organization',
+      name: 'Cáritas Argentina',
+      url: 'https://caritas.org.ar/',
+    },
+    {
+      '@type': 'Organization',
+      name: 'Fundación Educación y Misión',
+    },
+    {
+      '@type': 'Organization',
+      name: 'Cáritas Internationalis',
+      url: 'https://www.caritas.org/',
+    },
+  ],
+  knowsAbout: [
+    'Consultoría educativa',
+    'Pastoral juvenil',
+    'Desarrollo comunitario',
+    'Proyectos sociales',
+  ],
+  url: SITE_URL,
+})
 ---
 
-<Layout
-	title={t("meta.home.title") as string}
-	description={t("meta.home.description") as string}
->
-	<script type="application/ld+json" slot="jsonld" set:html={personSchema} />
-	<div class="w-full flex justify-center items-center flex-col">
-		<Hero />
-		<About />
-		<Friends />
-		<Founder />
-		<Contact />
-	</div>
+<Layout title={t('meta.home.title') as string} description={t('meta.home.description') as string}>
+  <script type="application/ld+json" slot="jsonld" set:html={personSchema} />
+  <div class="w-full flex justify-center items-center flex-col">
+    <Hero />
+    <About />
+    <Friends />
+    <Founder />
+    <Contact />
+  </div>
 </Layout>

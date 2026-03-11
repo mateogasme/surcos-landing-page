@@ -1,147 +1,145 @@
 ---
-import ServiceCard from "@/components/ServiceCard.astro";
-import { getLangFromUrl } from "@/i18n/utils";
+import ServiceCard from '@/components/ServiceCard.astro'
+import { getLangFromUrl } from '@/i18n/utils'
 
-const lang = getLangFromUrl(Astro.url);
+const lang = getLangFromUrl(Astro.url)
 
 const content = {
-    es: {
-        c1_title: "Contenidos educativos",
-        c1_desc:
-            "Como referentes creando materiales pedagógicos institucionales, te guiamos en la conceptualización y redacción integral de recursos de apoyo formativo. Adaptamos rigurosamente cada manual de estudio o guía didáctica a los objetivos, identidad carismática y pautas culturales de tu audiencia, asegurando la asimilación profunda de contenidos para facilitar el aprendizaje organizacional.",
-        c2_title: "Ecosistemas digitales",
-        c2_desc:
-            "A través de nuestros servicios como editorial educativa en Argentina, realizamos la adaptación visual y metodológica de tu material impreso a modernos entornos digitales interactivos. Optimizamos la forma estructural de comunicar mensajes para expandir tu alcance territorial, democratizar el acceso al conocimiento y asegurar un consumo orgánico en dispositivos móviles.",
-        c3_title: "Gestión editorial completa",
-        c3_desc:
-            "Brindamos una gestión pre-impresión completa, consolidándonos como editorial educativa en Argentina para el sector social. Nuestro cuidado abarca desde la meticulosa corrección de estilo y el diseño editorial de vanguardia ajustado al público objetivo, hasta la intermediación con imprentas sugeridas y la gestión legal de internacional de derechos y código ISBN.",
-        c4_title: "Publicaciones institucionales",
-        c4_desc:
-            "Diseñamos méticulosamente piezas editoriales corporativas, fundamentales para consolidar la identidad visual y operativa de tu organización. Con amplia experiencia generando materiales pedagógicos institucionales de gran calidad, estructuramos un diseño moderno ideal para memorias anuales, reportes de impacto sostenible, documentos técnicos transparentes o sistematización de buenas prácticas formativas y socioculturales.",
-    },
-    en: {
-        c1_title: "Educational content",
-        c1_desc:
-            "As leading creators of institutional pedagogical materials, we guide you in the conceptualization and comprehensive drafting of formative support resources. We rigorously adapt each study manual to your specific objectives, charismatic identity, and cultural nuances, ensuring profound content assimilation and highly facilitating organizational teaching and active learning processes across sectors.",
-        c2_title: "Digital ecosystems",
-        c2_desc:
-            "Through our renowned services as an educational publisher in Latin America, we carry out the thorough adaptation of your valuable print material into high-impact interactive digital environments. We optimize how you communicate core messages to expand your territorial reach, democratize knowledge access, and ensure deep, accessible reading experiences across devices.",
-        c3_title: "Full editorial management",
-        c3_desc:
-            "We provide outstanding comprehensive service, uniquely handling the entire pre-press lifecycle as a premium educational publisher in Latin America. Our meticulous care ranges from attentive copyediting and avant-garde layout securely tailored to the target audience, to printing press liaison, and concluding with complete legal management of copyrights and ISBN registration.",
-        c4_title: "Institutional publications",
-        c4_desc:
-            "We thoughtfully conceptualize corporate editorial pieces that prove highly strategic for solidly consolidating your comprehensive organizational identity. Backed by proven experience in generating top-tier institutional pedagogical materials, we build an impeccable design ideally suited for transparent annual reports, sustainable social impact summaries, technical donor documents, and internal operational procedure manuals.",
-    },
-};
+  es: {
+    c1_title: 'Contenidos educativos',
+    c1_desc:
+      'Como referentes creando materiales pedagógicos institucionales, te guiamos en la conceptualización y redacción integral de recursos de apoyo formativo. Adaptamos rigurosamente cada manual de estudio o guía didáctica a los objetivos, identidad carismática y pautas culturales de tu audiencia, asegurando la asimilación profunda de contenidos para facilitar el aprendizaje organizacional.',
+    c2_title: 'Ecosistemas digitales',
+    c2_desc:
+      'A través de nuestros servicios como editorial educativa en Argentina, realizamos la adaptación visual y metodológica de tu material impreso a modernos entornos digitales interactivos. Optimizamos la forma estructural de comunicar mensajes para expandir tu alcance territorial, democratizar el acceso al conocimiento y asegurar un consumo orgánico en dispositivos móviles.',
+    c3_title: 'Gestión editorial completa',
+    c3_desc:
+      'Brindamos una gestión pre-impresión completa, consolidándonos como editorial educativa en Argentina para el sector social. Nuestro cuidado abarca desde la meticulosa corrección de estilo y el diseño editorial de vanguardia ajustado al público objetivo, hasta la intermediación con imprentas sugeridas y la gestión legal de internacional de derechos y código ISBN.',
+    c4_title: 'Publicaciones institucionales',
+    c4_desc:
+      'Diseñamos méticulosamente piezas editoriales corporativas, fundamentales para consolidar la identidad visual y operativa de tu organización. Con amplia experiencia generando materiales pedagógicos institucionales de gran calidad, estructuramos un diseño moderno ideal para memorias anuales, reportes de impacto sostenible, documentos técnicos transparentes o sistematización de buenas prácticas formativas y socioculturales.',
+  },
+  en: {
+    c1_title: 'Educational content',
+    c1_desc:
+      'As leading creators of institutional pedagogical materials, we guide you in the conceptualization and comprehensive drafting of formative support resources. We rigorously adapt each study manual to your specific objectives, charismatic identity, and cultural nuances, ensuring profound content assimilation and highly facilitating organizational teaching and active learning processes across sectors.',
+    c2_title: 'Digital ecosystems',
+    c2_desc:
+      'Through our renowned services as an educational publisher in Latin America, we carry out the thorough adaptation of your valuable print material into high-impact interactive digital environments. We optimize how you communicate core messages to expand your territorial reach, democratize knowledge access, and ensure deep, accessible reading experiences across devices.',
+    c3_title: 'Full editorial management',
+    c3_desc:
+      'We provide outstanding comprehensive service, uniquely handling the entire pre-press lifecycle as a premium educational publisher in Latin America. Our meticulous care ranges from attentive copyediting and avant-garde layout securely tailored to the target audience, to printing press liaison, and concluding with complete legal management of copyrights and ISBN registration.',
+    c4_title: 'Institutional publications',
+    c4_desc:
+      'We thoughtfully conceptualize corporate editorial pieces that prove highly strategic for solidly consolidating your comprehensive organizational identity. Backed by proven experience in generating top-tier institutional pedagogical materials, we build an impeccable design ideally suited for transparent annual reports, sustainable social impact summaries, technical donor documents, and internal operational procedure manuals.',
+  },
+}
 
-const t = content[lang];
+const t = content[lang]
 ---
 
-<ul
-    class="flex flex-col md:flex-row flex-wrap justify-center gap-6 list-none p-0 m-0"
->
-    <!-- Card 1 -->
-    <ServiceCard
-        title={t.c1_title}
-        description={t.c1_desc}
-        iconWrapperClasses="bg-orange-500/10 dark:bg-orange-500/20 text-orange-600 dark:text-orange-400"
-        delay={200}
+<ul class="flex flex-col md:flex-row flex-wrap justify-center gap-6 list-none p-0 m-0">
+  <!-- Card 1 -->
+  <ServiceCard
+    title={t.c1_title}
+    description={t.c1_desc}
+    iconWrapperClasses="bg-orange-500/10 dark:bg-orange-500/20 text-orange-600 dark:text-orange-400"
+    delay={200}
+  >
+    <svg
+      slot="icon"
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
     >
-        <svg
-            slot="icon"
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-        >
-            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-            <circle cx="8.5" cy="8.5" r="1.5"></circle>
-            <polyline points="21 15 16 10 5 21"></polyline>
-        </svg>
-    </ServiceCard>
+      <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+      <circle cx="8.5" cy="8.5" r="1.5"></circle>
+      <polyline points="21 15 16 10 5 21"></polyline>
+    </svg>
+  </ServiceCard>
 
-    <!-- Card 2 -->
-    <ServiceCard
-        title={t.c2_title}
-        description={t.c2_desc}
-        iconWrapperClasses="bg-blue-500/10 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400"
-        delay={350}
+  <!-- Card 2 -->
+  <ServiceCard
+    title={t.c2_title}
+    description={t.c2_desc}
+    iconWrapperClasses="bg-blue-500/10 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400"
+    delay={350}
+  >
+    <svg
+      slot="icon"
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="lucide lucide-monitor-icon lucide-monitor"
     >
-        <svg
-            slot="icon"
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="lucide lucide-monitor-icon lucide-monitor"
-        >
-            <rect width="20" height="14" x="2" y="3" rx="2"></rect>
-            <line x1="8" x2="16" y1="21" y2="21"></line>
-            <line x1="12" x2="12" y1="17" y2="21"></line>
-        </svg>
-    </ServiceCard>
+      <rect width="20" height="14" x="2" y="3" rx="2"></rect>
+      <line x1="8" x2="16" y1="21" y2="21"></line>
+      <line x1="12" x2="12" y1="17" y2="21"></line>
+    </svg>
+  </ServiceCard>
 
-    <!-- Card 3 -->
-    <ServiceCard
-        title={t.c3_title}
-        description={t.c3_desc}
-        iconWrapperClasses="bg-purple-500/10 dark:bg-purple-500/20 text-purple-600 dark:text-purple-400"
-        delay={500}
+  <!-- Card 3 -->
+  <ServiceCard
+    title={t.c3_title}
+    description={t.c3_desc}
+    iconWrapperClasses="bg-purple-500/10 dark:bg-purple-500/20 text-purple-600 dark:text-purple-400"
+    delay={500}
+  >
+    <svg
+      slot="icon"
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="lucide lucide-book-marked-icon lucide-book-marked"
     >
-        <svg
-            slot="icon"
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="lucide lucide-book-marked-icon lucide-book-marked"
-        >
-            <path d="M10 2v8l3-3 3 3V2"></path>
-            <path
-                d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"
-            ></path>
-        </svg>
-    </ServiceCard>
+      <path d="M10 2v8l3-3 3 3V2"></path>
+      <path
+        d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"
+      ></path>
+    </svg>
+  </ServiceCard>
 
-    <!-- Card 4 -->
-    <ServiceCard
-        title={t.c4_title}
-        description={t.c4_desc}
-        iconWrapperClasses="bg-emerald-500/10 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400"
-        delay={650}
+  <!-- Card 4 -->
+  <ServiceCard
+    title={t.c4_title}
+    description={t.c4_desc}
+    iconWrapperClasses="bg-emerald-500/10 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400"
+    delay={650}
+  >
+    <svg
+      slot="icon"
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
     >
-        <svg
-            slot="icon"
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-        >
-            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-            <line x1="16" y1="2" x2="16" y2="6"></line>
-            <line x1="8" y1="2" x2="8" y2="6"></line>
-            <line x1="3" y1="10" x2="21" y2="10"></line>
-        </svg>
-    </ServiceCard>
+      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+      <line x1="16" y1="2" x2="16" y2="6"></line>
+      <line x1="8" y1="2" x2="8" y2="6"></line>
+      <line x1="3" y1="10" x2="21" y2="10"></line>
+    </svg>
+  </ServiceCard>
 </ul>

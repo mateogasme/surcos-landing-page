@@ -1,235 +1,218 @@
 ---
-import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+import { getLangFromUrl, useTranslations } from '@/i18n/utils'
 
-import CheckIcon from "@/assets/icons/ui/check-icon.svg";
-import CopyIcon from "@/assets/icons/ui/copy-icon.svg";
-import EmailIcon from "@/assets/icons/contact/email-icon.svg";
-import ExternalLinkIcon from "@/assets/icons/ui/external-link-icon.svg";
-import PhoneIcon from "@/assets/icons/contact/phone-icon.svg";
-import WhatsAppIcon from "@/assets/icons/contact/whatsapp-icon.svg";
+import CheckIcon from '@/assets/icons/ui/check-icon.svg'
+import CopyIcon from '@/assets/icons/ui/copy-icon.svg'
+import EmailIcon from '@/assets/icons/contact/email-icon.svg'
+import ExternalLinkIcon from '@/assets/icons/ui/external-link-icon.svg'
+import PhoneIcon from '@/assets/icons/contact/phone-icon.svg'
+import WhatsAppIcon from '@/assets/icons/contact/whatsapp-icon.svg'
 
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
 ---
 
-<section
-    class="w-full mb-16 px-6 md:px-0"
-    id="contact"
-    aria-labelledby="contact-heading"
->
-    <div class="max-w-175 mx-auto">
-        <div
-            class="relative w-full rounded-2xl overflow-hidden bg-white/50 dark:bg-zinc-900/50 backdrop-blur-md border border-primary/10 dark:border-white/10 shadow-sm animate-fade-in-up p-8 flex flex-col md:flex-row gap-8 items-center hover:shadow-md hover:-translate-y-1 transition-all duration-200"
-            style="animation-delay: 300ms"
+<section class="w-full mb-16 px-6 md:px-0" id="contact" aria-labelledby="contact-heading">
+  <div class="max-w-175 mx-auto">
+    <div
+      class="relative w-full rounded-2xl overflow-hidden bg-white/50 dark:bg-zinc-900/50 backdrop-blur-md border border-primary/10 dark:border-white/10 shadow-sm animate-fade-in-up p-8 flex flex-col md:flex-row gap-8 items-center hover:shadow-md hover:-translate-y-1 transition-all duration-200"
+      style="animation-delay: 300ms"
+    >
+      <!-- Texto Izquierda -->
+      <div
+        class="w-full md:w-[45%] flex flex-col items-center md:items-start text-center md:text-left gap-4"
+      >
+        <h2
+          id="contact-heading"
+          class="text-2xl lg:text-3xl font-bold text-primary tracking-tight leading-[1.15]"
         >
-            <!-- Texto Izquierda -->
+          {t('contact.subtitle')}
+        </h2>
+        <p class="text-primary/70 text-[0.95rem] leading-relaxed text-pretty">
+          {t('contact.text')}
+        </p>
+      </div>
+
+      <!-- Botones Derecha -->
+      <div class="w-full md:w-[55%] flex flex-col gap-3">
+        <!-- WhatsApp (Escribinos) -->
+        <a
+          href="https://wa.me/5491162596258"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group relative flex items-center justify-between p-4 rounded-xl bg-white dark:bg-zinc-800 border border-primary/5 dark:border-white/10 transition-all duration-200 overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-0.5 w-full"
+          aria-label="WhatsApp: +54 9 11 6259-6258"
+        >
+          <div class="flex items-center gap-4 relative z-10 w-full">
             <div
-                class="w-full md:w-[45%] flex flex-col items-center md:items-start text-center md:text-left gap-4"
+              class="shrink-0 w-10 h-10 flex items-center justify-center rounded-lg bg-emerald-500/10 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-200"
+              aria-hidden="true"
             >
-                <h2
-                    id="contact-heading"
-                    class="text-2xl lg:text-3xl font-bold text-primary tracking-tight leading-[1.15]"
-                >
-                    {t("contact.subtitle")}
-                </h2>
-                <p
-                    class="text-primary/70 text-[0.95rem] leading-relaxed text-pretty"
-                >
-                    {t("contact.text")}
-                </p>
+              <WhatsAppIcon />
+            </div>
+            <div class="flex flex-col text-left flex-1 min-w-0">
+              <span class="text-primary font-semibold text-[0.95rem] truncate"
+                >{t('contact.whatsapp')}</span
+              >
+              <span class="text-primary/60 text-[0.85rem] font-medium tracking-wide truncate"
+                >+54 9 11 6259-6258</span
+              >
+            </div>
+            <div
+              class="relative shrink-0 flex items-center justify-center w-8 h-8 rounded-lg text-primary/40 group-hover:text-primary transition-colors"
+            >
+              <ExternalLinkIcon />
+            </div>
+          </div>
+        </a>
+
+        <!-- Email (Copiar) -->
+        <button
+          class="copy-btn group relative flex items-center justify-between p-4 rounded-xl bg-white dark:bg-zinc-800 border border-primary/5 dark:border-white/10 transition-all duration-200 overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-0.5 w-full text-left cursor-pointer"
+          data-copy="info@equiposurcos.com.ar"
+          aria-label="Copiar email: info@equiposurcos.com.ar"
+        >
+          <div class="flex items-center gap-4 relative z-10 w-full">
+            <div
+              class="shrink-0 w-10 h-10 flex items-center justify-center rounded-lg bg-blue-500/10 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-200"
+              aria-hidden="true"
+            >
+              <EmailIcon />
+            </div>
+            <div class="flex flex-col text-left flex-1 min-w-0">
+              <span class="text-primary font-semibold text-[0.95rem] truncate"
+                >{t('contact.email')}</span
+              >
+              <span class="text-primary/60 text-[0.85rem] font-medium tracking-wide truncate"
+                >info@equiposurcos.com.ar</span
+              >
             </div>
 
-            <!-- Botones Derecha -->
-            <div class="w-full md:w-[55%] flex flex-col gap-3">
-                <!-- WhatsApp (Escribinos) -->
-                <a
-                    href="https://wa.me/5491162596258"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="group relative flex items-center justify-between p-4 rounded-xl bg-white dark:bg-zinc-800 border border-primary/5 dark:border-white/10 transition-all duration-200 overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-0.5 w-full"
-                    aria-label="WhatsApp: +54 9 11 6259-6258"
-                >
-                    <div class="flex items-center gap-4 relative z-10 w-full">
-                        <div
-                            class="shrink-0 w-10 h-10 flex items-center justify-center rounded-lg bg-emerald-500/10 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-200"
-                            aria-hidden="true"
-                        >
-                            <WhatsAppIcon />
-                        </div>
-                        <div class="flex flex-col text-left flex-1 min-w-0">
-                            <span
-                                class="text-primary font-semibold text-[0.95rem] truncate"
-                                >{t("contact.whatsapp")}</span
-                            >
-                            <span
-                                class="text-primary/60 text-[0.85rem] font-medium tracking-wide truncate"
-                                >+54 9 11 6259-6258</span
-                            >
-                        </div>
-                        <div
-                            class="relative shrink-0 flex items-center justify-center w-8 h-8 rounded-lg text-primary/40 group-hover:text-primary transition-colors"
-                        >
-                            <ExternalLinkIcon />
-                        </div>
-                    </div>
-                </a>
+            <!-- Tooltip Copy Container -->
+            <div
+              class="relative shrink-0 flex items-center justify-center w-8 h-8 rounded-lg text-primary/40 group-hover:text-primary transition-colors"
+            >
+              <CopyIcon class="icon-copy block" />
+              <CheckIcon class="icon-check hidden text-emerald-500" />
 
-                <!-- Email (Copiar) -->
-                <button
-                    class="copy-btn group relative flex items-center justify-between p-4 rounded-xl bg-white dark:bg-zinc-800 border border-primary/5 dark:border-white/10 transition-all duration-200 overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-0.5 w-full text-left cursor-pointer"
-                    data-copy="info@equiposurcos.com.ar"
-                    aria-label="Copiar email: info@equiposurcos.com.ar"
-                >
-                    <div class="flex items-center gap-4 relative z-10 w-full">
-                        <div
-                            class="shrink-0 w-10 h-10 flex items-center justify-center rounded-lg bg-blue-500/10 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-200"
-                            aria-hidden="true"
-                        >
-                            <EmailIcon />
-                        </div>
-                        <div class="flex flex-col text-left flex-1 min-w-0">
-                            <span
-                                class="text-primary font-semibold text-[0.95rem] truncate"
-                                >{t("contact.email")}</span
-                            >
-                            <span
-                                class="text-primary/60 text-[0.85rem] font-medium tracking-wide truncate"
-                                >info@equiposurcos.com.ar</span
-                            >
-                        </div>
-
-                        <!-- Tooltip Copy Container -->
-                        <div
-                            class="relative shrink-0 flex items-center justify-center w-8 h-8 rounded-lg text-primary/40 group-hover:text-primary transition-colors"
-                        >
-                            <CopyIcon class="icon-copy block" />
-                            <CheckIcon
-                                class="icon-check hidden text-emerald-500"
-                            />
-
-                            <span
-                                class="tooltip-text absolute right-full mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none flex items-center bg-primary text-secondary text-[11px] font-medium rounded-md shadow-lg z-10 px-2.5 py-1.5 whitespace-nowrap"
-                            >
-                                {t("modal.copy")}
-                                <span
-                                    class="absolute top-1/2 left-full -translate-y-1/2 border-4 border-transparent border-l-primary"
-                                ></span>
-                            </span>
-                            <span
-                                class="tooltip-copied absolute right-full mr-2 opacity-0 pointer-events-none flex items-center bg-emerald-500 text-white text-[11px] font-medium rounded-md shadow-lg z-10 px-2.5 py-1.5 whitespace-nowrap"
-                            >
-                                {t("modal.copied")}
-                                <span
-                                    class="absolute top-1/2 left-full -translate-y-1/2 border-4 border-transparent border-l-emerald-500"
-                                ></span>
-                            </span>
-                        </div>
-                    </div>
-                </button>
-
-                <!-- Phone (Copiar) -->
-                <button
-                    class="copy-btn group relative flex items-center justify-between p-4 rounded-xl bg-white dark:bg-zinc-800 border border-primary/5 dark:border-white/10 transition-all duration-200 overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-0.5 w-full text-left cursor-pointer"
-                    data-copy="+54 9 11 6259-6258"
-                    aria-label="Copiar teléfono: +54 9 11 6259-6258"
-                >
-                    <div class="flex items-center gap-4 relative z-10 w-full">
-                        <div
-                            class="shrink-0 w-10 h-10 flex items-center justify-center rounded-lg bg-amber-500/10 dark:bg-amber-500/20 text-amber-600 dark:text-amber-400 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-200"
-                            aria-hidden="true"
-                        >
-                            <PhoneIcon />
-                        </div>
-                        <div class="flex flex-col text-left flex-1 min-w-0">
-                            <span
-                                class="text-primary font-semibold text-[0.95rem] truncate"
-                                >{t("contact.phone")}</span
-                            >
-                            <span
-                                class="text-primary/60 text-[0.85rem] font-medium tracking-wide truncate"
-                                >+54 9 11 6259-6258</span
-                            >
-                        </div>
-
-                        <!-- Tooltip Copy Container -->
-                        <div
-                            class="relative shrink-0 flex items-center justify-center w-8 h-8 rounded-lg text-primary/40 group-hover:text-primary transition-colors"
-                        >
-                            <CopyIcon class="icon-copy block" />
-                            <CheckIcon
-                                class="icon-check hidden text-emerald-500"
-                            />
-
-                            <span
-                                class="tooltip-text absolute right-full mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none flex items-center bg-primary text-secondary text-[11px] font-medium rounded-md shadow-lg z-10 px-2.5 py-1.5 whitespace-nowrap"
-                            >
-                                {t("modal.copy")}
-                                <span
-                                    class="absolute top-1/2 left-full -translate-y-1/2 border-4 border-transparent border-l-primary"
-                                ></span>
-                            </span>
-                            <span
-                                class="tooltip-copied absolute right-full mr-2 opacity-0 pointer-events-none flex items-center bg-emerald-500 text-white text-[11px] font-medium rounded-md shadow-lg z-10 px-2.5 py-1.5 whitespace-nowrap"
-                            >
-                                {t("modal.copied")}
-                                <span
-                                    class="absolute top-1/2 left-full -translate-y-1/2 border-4 border-transparent border-l-emerald-500"
-                                ></span>
-                            </span>
-                        </div>
-                    </div>
-                </button>
+              <span
+                class="tooltip-text absolute right-full mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none flex items-center bg-primary text-secondary text-[11px] font-medium rounded-md shadow-lg z-10 px-2.5 py-1.5 whitespace-nowrap"
+              >
+                {t('modal.copy')}
+                <span
+                  class="absolute top-1/2 left-full -translate-y-1/2 border-4 border-transparent border-l-primary"
+                ></span>
+              </span>
+              <span
+                class="tooltip-copied absolute right-full mr-2 opacity-0 pointer-events-none flex items-center bg-emerald-500 text-white text-[11px] font-medium rounded-md shadow-lg z-10 px-2.5 py-1.5 whitespace-nowrap"
+              >
+                {t('modal.copied')}
+                <span
+                  class="absolute top-1/2 left-full -translate-y-1/2 border-4 border-transparent border-l-emerald-500"
+                ></span>
+              </span>
             </div>
-        </div>
+          </div>
+        </button>
+
+        <!-- Phone (Copiar) -->
+        <button
+          class="copy-btn group relative flex items-center justify-between p-4 rounded-xl bg-white dark:bg-zinc-800 border border-primary/5 dark:border-white/10 transition-all duration-200 overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-0.5 w-full text-left cursor-pointer"
+          data-copy="+54 9 11 6259-6258"
+          aria-label="Copiar teléfono: +54 9 11 6259-6258"
+        >
+          <div class="flex items-center gap-4 relative z-10 w-full">
+            <div
+              class="shrink-0 w-10 h-10 flex items-center justify-center rounded-lg bg-amber-500/10 dark:bg-amber-500/20 text-amber-600 dark:text-amber-400 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-200"
+              aria-hidden="true"
+            >
+              <PhoneIcon />
+            </div>
+            <div class="flex flex-col text-left flex-1 min-w-0">
+              <span class="text-primary font-semibold text-[0.95rem] truncate"
+                >{t('contact.phone')}</span
+              >
+              <span class="text-primary/60 text-[0.85rem] font-medium tracking-wide truncate"
+                >+54 9 11 6259-6258</span
+              >
+            </div>
+
+            <!-- Tooltip Copy Container -->
+            <div
+              class="relative shrink-0 flex items-center justify-center w-8 h-8 rounded-lg text-primary/40 group-hover:text-primary transition-colors"
+            >
+              <CopyIcon class="icon-copy block" />
+              <CheckIcon class="icon-check hidden text-emerald-500" />
+
+              <span
+                class="tooltip-text absolute right-full mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none flex items-center bg-primary text-secondary text-[11px] font-medium rounded-md shadow-lg z-10 px-2.5 py-1.5 whitespace-nowrap"
+              >
+                {t('modal.copy')}
+                <span
+                  class="absolute top-1/2 left-full -translate-y-1/2 border-4 border-transparent border-l-primary"
+                ></span>
+              </span>
+              <span
+                class="tooltip-copied absolute right-full mr-2 opacity-0 pointer-events-none flex items-center bg-emerald-500 text-white text-[11px] font-medium rounded-md shadow-lg z-10 px-2.5 py-1.5 whitespace-nowrap"
+              >
+                {t('modal.copied')}
+                <span
+                  class="absolute top-1/2 left-full -translate-y-1/2 border-4 border-transparent border-l-emerald-500"
+                ></span>
+              </span>
+            </div>
+          </div>
+        </button>
+      </div>
     </div>
+  </div>
 </section>
 
 <script>
-    document.addEventListener("astro:page-load", () => {
-        const copyBtns = document.querySelectorAll(".copy-btn");
+  document.addEventListener('astro:page-load', () => {
+    const copyBtns = document.querySelectorAll('.copy-btn')
 
-        copyBtns.forEach((btn) => {
-            btn.addEventListener("click", async (e) => {
-                const target = e.currentTarget as HTMLButtonElement;
-                const textToCopy = target.getAttribute("data-copy");
+    copyBtns.forEach((btn) => {
+      btn.addEventListener('click', async (e) => {
+        const target = e.currentTarget as HTMLButtonElement
+        const textToCopy = target.getAttribute('data-copy')
 
-                if (textToCopy) {
-                    try {
-                        await navigator.clipboard.writeText(textToCopy);
+        if (textToCopy) {
+          try {
+            await navigator.clipboard.writeText(textToCopy)
 
-                        const iconCopy = target.querySelector(".icon-copy");
-                        const iconCheck = target.querySelector(".icon-check");
-                        const tooltipText =
-                            target.querySelector(".tooltip-text");
-                        const tooltipCopied =
-                            target.querySelector(".tooltip-copied");
+            const iconCopy = target.querySelector('.icon-copy')
+            const iconCheck = target.querySelector('.icon-check')
+            const tooltipText = target.querySelector('.tooltip-text')
+            const tooltipCopied = target.querySelector('.tooltip-copied')
 
-                        iconCopy?.classList.add("hidden");
-                        iconCopy?.classList.remove("block");
-                        iconCheck?.classList.remove("hidden");
-                        iconCheck?.classList.add("block");
+            iconCopy?.classList.add('hidden')
+            iconCopy?.classList.remove('block')
+            iconCheck?.classList.remove('hidden')
+            iconCheck?.classList.add('block')
 
-                        tooltipText?.classList.add("hidden");
-                        tooltipText?.classList.remove("flex");
-                        tooltipCopied?.classList.remove("opacity-0");
-                        tooltipCopied?.classList.add("opacity-100");
+            tooltipText?.classList.add('hidden')
+            tooltipText?.classList.remove('flex')
+            tooltipCopied?.classList.remove('opacity-0')
+            tooltipCopied?.classList.add('opacity-100')
 
-                        setTimeout(() => {
-                            iconCheck?.classList.add("hidden");
-                            iconCheck?.classList.remove("block");
-                            iconCopy?.classList.remove("hidden");
-                            iconCopy?.classList.add("block");
+            setTimeout(() => {
+              iconCheck?.classList.add('hidden')
+              iconCheck?.classList.remove('block')
+              iconCopy?.classList.remove('hidden')
+              iconCopy?.classList.add('block')
 
-                            tooltipCopied?.classList.add("opacity-0");
-                            tooltipCopied?.classList.remove("opacity-100");
-                            tooltipText?.classList.remove("hidden");
-                            tooltipText?.classList.add("flex");
-                        }, 2000);
-                    } catch (err) {
-                        console.error("Error al copiar: ", err);
-                    }
-                }
-            });
-        });
-    });
+              tooltipCopied?.classList.add('opacity-0')
+              tooltipCopied?.classList.remove('opacity-100')
+              tooltipText?.classList.remove('hidden')
+              tooltipText?.classList.add('flex')
+            }, 2000)
+          } catch (err) {
+            // eslint-disable-next-line no-console
+            console.error('Error al copiar: ', err)
+          }
+        }
+      })
+    })
+  })
 </script>

@@ -1,92 +1,85 @@
 ---
-import { getLangFromUrl, useTranslations } from "@/i18n/utils";
-import { getRelativeLocaleUrl } from "astro:i18n";
+import { getLangFromUrl, useTranslations } from '@/i18n/utils'
+import { getRelativeLocaleUrl } from 'astro:i18n'
 
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
-const currentYear = new Date().getFullYear();
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+const currentYear = new Date().getFullYear()
 ---
 
 <footer
-    class="w-full mt-auto py-8 px-12 md:px-0 border-t border-primary/5 dark:border-white/5 bg-secondary shrink-0"
+  class="w-full mt-auto py-8 px-12 md:px-0 border-t border-primary/5 dark:border-white/5 bg-secondary shrink-0"
 >
-    <div
-        class="max-w-175 mx-auto flex flex-col md:flex-row items-center justify-between gap-4"
+  <div class="max-w-175 mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+    <a
+      href={getRelativeLocaleUrl(lang, '/')}
+      class="text-xs text-primary/70 dark:text-white/60 font-medium m-0 order-2 md:order-1 hover:underline"
     >
-        <a
-            href={getRelativeLocaleUrl(lang, "/")}
-            class="text-xs text-primary/70 dark:text-white/60 font-medium m-0 order-2 md:order-1 hover:underline"
-        >
-            &copy; {currentYear}
-            <span class="font-semibold text-primary dark:text-white">
-                Equipo Surcos
-            </span>
-        </a>
+      &copy; {currentYear}
+      <span class="font-semibold text-primary dark:text-white"> Equipo Surcos </span>
+    </a>
 
-        <nav
-            aria-label="Navegación de pie de página"
-            class="order-1 md:order-2"
-        >
-            <ul
-                class="flex flex-wrap items-center justify-center md:justify-end gap-x-4 gap-y-1 list-none p-0 m-0"
-            >
-                <li>
-                    <a
-                        href={getRelativeLocaleUrl(lang, "/")}
-                        class="text-xs text-primary/70 hover:text-primary transition-colors font-medium hover:underline"
-                    >
-                        {t("nav.home")}
-                    </a>
-                </li>
-                <li>
-                    <a
-                        href={getRelativeLocaleUrl(lang, "consultoria")}
-                        class="text-xs text-primary/70 hover:text-primary transition-colors font-medium hover:underline"
-                    >
-                        {t("nav.consulting")}
-                    </a>
-                </li>
-                <li>
-                    <a
-                        href={getRelativeLocaleUrl(lang, "formacion")}
-                        class="text-xs text-primary/70 hover:text-primary transition-colors font-medium hover:underline"
-                    >
-                        {t("nav.training")}
-                    </a>
-                </li>
-                <li>
-                    <a
-                        href={getRelativeLocaleUrl(lang, "publicaciones")}
-                        class="text-xs text-primary/70 hover:text-primary transition-colors font-medium hover:underline"
-                    >
-                        {t("nav.publications")}
-                    </a>
-                </li>
-                <li>
-                    <a
-                        href={getRelativeLocaleUrl(lang, "trabajos")}
-                        class="text-xs text-primary/70 hover:text-primary transition-colors font-medium hover:underline"
-                    >
-                        {t("nav.works")}
-                    </a>
-                </li>
-                <li>
-                    <a
-                        href="#about"
-                        class="text-xs text-primary/70 hover:text-primary transition-colors font-medium hover:underline"
-                    >
-                        {t("hero.about")}
-                    </a>
-                </li>
-                <li>
-                    <a
-                        href="#contact"
-                        class="text-xs text-primary/70 hover:text-primary transition-colors font-medium hover:underline"
-                    >
-                        {t("contact.title")}
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </div>
+    <nav aria-label="Navegación de pie de página" class="order-1 md:order-2">
+      <ul
+        class="flex flex-wrap items-center justify-center md:justify-end gap-x-4 gap-y-1 list-none p-0 m-0"
+      >
+        <li>
+          <a
+            href={getRelativeLocaleUrl(lang, '/')}
+            class="text-xs text-primary/70 hover:text-primary transition-colors font-medium hover:underline"
+          >
+            {t('nav.home')}
+          </a>
+        </li>
+        <li>
+          <a
+            href={getRelativeLocaleUrl(lang, 'consultoria')}
+            class="text-xs text-primary/70 hover:text-primary transition-colors font-medium hover:underline"
+          >
+            {t('nav.consulting')}
+          </a>
+        </li>
+        <li>
+          <a
+            href={getRelativeLocaleUrl(lang, 'formacion')}
+            class="text-xs text-primary/70 hover:text-primary transition-colors font-medium hover:underline"
+          >
+            {t('nav.training')}
+          </a>
+        </li>
+        <li>
+          <a
+            href={getRelativeLocaleUrl(lang, 'publicaciones')}
+            class="text-xs text-primary/70 hover:text-primary transition-colors font-medium hover:underline"
+          >
+            {t('nav.publications')}
+          </a>
+        </li>
+        <li>
+          <a
+            href={getRelativeLocaleUrl(lang, 'trabajos')}
+            class="text-xs text-primary/70 hover:text-primary transition-colors font-medium hover:underline"
+          >
+            {t('nav.works')}
+          </a>
+        </li>
+        <li>
+          <a
+            href="#about"
+            class="text-xs text-primary/70 hover:text-primary transition-colors font-medium hover:underline"
+          >
+            {t('hero.about')}
+          </a>
+        </li>
+        <li>
+          <a
+            href="#contact"
+            class="text-xs text-primary/70 hover:text-primary transition-colors font-medium hover:underline"
+          >
+            {t('contact.title')}
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
 </footer>

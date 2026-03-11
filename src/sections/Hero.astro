@@ -1,42 +1,39 @@
 ---
-import { Image } from "astro:assets";
-import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+import { Image } from 'astro:assets'
+import { getLangFromUrl, useTranslations } from '@/i18n/utils'
 
-import equipoSurcos from "@/assets/images/equiposurcos.webp";
+import equipoSurcos from '@/assets/images/equiposurcos.webp'
 
-import ButtonCTA from "@/components/ButtonCTA.astro";
-import ButtonOutline from "@/components/ButtonOutline.astro";
+import ButtonCTA from '@/components/ButtonCTA.astro'
+import ButtonOutline from '@/components/ButtonOutline.astro'
 
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
 ---
 
-<section
-    class="w-full mt-12 md:mt-16 px-6 md:px-0"
-    aria-labelledby="hero-heading"
->
-    <div class="max-w-160 mx-auto flex flex-col gap-6">
-        <Image
-            src={equipoSurcos}
-            alt="Equipo Surcos"
-            class="w-1/2 mx-auto h-auto object-cover invert dark:invert-0 transition-all duration-200 animate-fade-in-up"
-            loading="eager"
-        />
-        <h1
-            id="hero-heading"
-            class="text-[16px] md:text-[17px] text-primary/80 font-normal leading-relaxed text-center w-[90%] mx-auto animate-fade-in-up animate-delay-200"
-            set:html={t("hero.text")}
-        />
+<section class="w-full mt-12 md:mt-16 px-6 md:px-0" aria-labelledby="hero-heading">
+  <div class="max-w-160 mx-auto flex flex-col gap-6">
+    <Image
+      src={equipoSurcos}
+      alt="Equipo Surcos"
+      class="w-1/2 mx-auto h-auto object-cover invert dark:invert-0 transition-all duration-200 animate-fade-in-up"
+      loading="eager"
+    />
+    <h1
+      id="hero-heading"
+      class="text-[16px] md:text-[17px] text-primary/80 font-normal leading-relaxed text-center w-[90%] mx-auto animate-fade-in-up animate-delay-200"
+      set:html={t('hero.text')}
+    />
 
-        <div
-            class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-2 animate-fade-in-up animate-delay-400"
-        >
-            <ButtonCTA href="#about">
-                {t("hero.about")}
-            </ButtonCTA>
-            <ButtonOutline href="#contact">
-                {t("hero.contact")}
-            </ButtonOutline>
-        </div>
+    <div
+      class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-2 animate-fade-in-up animate-delay-400"
+    >
+      <ButtonCTA href="#about">
+        {t('hero.about')}
+      </ButtonCTA>
+      <ButtonOutline href="#contact">
+        {t('hero.contact')}
+      </ButtonOutline>
     </div>
+  </div>
 </section>

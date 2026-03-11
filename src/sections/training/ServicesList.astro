@@ -1,112 +1,110 @@
 ---
-import ServiceCard from "@/components/ServiceCard.astro";
-import { getLangFromUrl } from "@/i18n/utils";
+import ServiceCard from '@/components/ServiceCard.astro'
+import { getLangFromUrl } from '@/i18n/utils'
 
-const lang = getLangFromUrl(Astro.url);
+const lang = getLangFromUrl(Astro.url)
 
 const content = {
-    es: {
-        c1_title: "Diseño de procesos formativos",
-        c1_desc:
-            "A través de nuestro servicio de formación para organizaciones sociales, realizamos el diseño didáctico integral de itinerarios formativos a medida. Elaboramos exhaustivamente los recursos metodológicos para su implementación. Este proceso de aprendizaje profundo potencia a voluntarios y líderes mediante la capacitación de equipos pastorales, brindando marcos actualizados para incidir positivamente.",
-        c2_title: "Módulos temáticos",
-        c2_desc:
-            "Nuestros módulos intensivos brindan respuestas ágiles a necesidades emergentes en momentos críticos. Desde la formación para organizaciones sociales, estos espacios fortalecen las prácticas de tu equipo, actualizan el marco conceptual frente a nuevos escenarios comunitarios y proveen herramientas de liderazgo y resolución de conflictos que maximizan el impacto de su misión.",
-        c3_title: "Cursos y capacitaciones",
-        c3_desc:
-            "Ofrecemos propuestas formativas por niveles para otorgar un nuevo horizonte de acción e impulsar prácticas sociopastorales contemporáneas. Desarrollamos seminarios intensivos y trayectos de capacitación de equipos pastorales orientados a consolidar un perfil de educador o dirigente capaz de leer críticamente la realidad, acompañar la vulnerabilidad y generar transformación social sustentable.",
-    },
-    en: {
-        c1_title: "Design of training processes",
-        c1_desc:
-            "Through our specialized training for social organizations, we execute the comprehensive didactic design of customized learning itineraries. We meticulously prepare all methodological resources required for implementation. This deep learning process empowers volunteer leaders through the training of pastoral teams, providing updated action frameworks to positively impact their local communities.",
-        c2_title: "Thematic modules",
-        c2_desc:
-            "Our intensive modules provide agile training responses to emerging needs in critical moments. Leveraging our expertise in training for social organizations, these focused spaces methodologically strengthen daily team practices, modernizing their conceptual framework and delivering essential leadership and conflict resolution tools to maximize the enduring impact of your shared mission.",
-        c3_title: "Courses & workshops",
-        c3_desc:
-            "We offer diverse training proposals across varying depth levels to decisively boost innovative socio-educational practices. We design professional seminars and specific tracks for the training of pastoral teams aimed at consolidating a profile of educator or leader fully capable of critically reading reality, accompanying vulnerability, and generating sustainable social transformation.",
-    },
-};
+  es: {
+    c1_title: 'Diseño de procesos formativos',
+    c1_desc:
+      'A través de nuestro servicio de formación para organizaciones sociales, realizamos el diseño didáctico integral de itinerarios formativos a medida. Elaboramos exhaustivamente los recursos metodológicos para su implementación. Este proceso de aprendizaje profundo potencia a voluntarios y líderes mediante la capacitación de equipos pastorales, brindando marcos actualizados para incidir positivamente.',
+    c2_title: 'Módulos temáticos',
+    c2_desc:
+      'Nuestros módulos intensivos brindan respuestas ágiles a necesidades emergentes en momentos críticos. Desde la formación para organizaciones sociales, estos espacios fortalecen las prácticas de tu equipo, actualizan el marco conceptual frente a nuevos escenarios comunitarios y proveen herramientas de liderazgo y resolución de conflictos que maximizan el impacto de su misión.',
+    c3_title: 'Cursos y capacitaciones',
+    c3_desc:
+      'Ofrecemos propuestas formativas por niveles para otorgar un nuevo horizonte de acción e impulsar prácticas sociopastorales contemporáneas. Desarrollamos seminarios intensivos y trayectos de capacitación de equipos pastorales orientados a consolidar un perfil de educador o dirigente capaz de leer críticamente la realidad, acompañar la vulnerabilidad y generar transformación social sustentable.',
+  },
+  en: {
+    c1_title: 'Design of training processes',
+    c1_desc:
+      'Through our specialized training for social organizations, we execute the comprehensive didactic design of customized learning itineraries. We meticulously prepare all methodological resources required for implementation. This deep learning process empowers volunteer leaders through the training of pastoral teams, providing updated action frameworks to positively impact their local communities.',
+    c2_title: 'Thematic modules',
+    c2_desc:
+      'Our intensive modules provide agile training responses to emerging needs in critical moments. Leveraging our expertise in training for social organizations, these focused spaces methodologically strengthen daily team practices, modernizing their conceptual framework and delivering essential leadership and conflict resolution tools to maximize the enduring impact of your shared mission.',
+    c3_title: 'Courses & workshops',
+    c3_desc:
+      'We offer diverse training proposals across varying depth levels to decisively boost innovative socio-educational practices. We design professional seminars and specific tracks for the training of pastoral teams aimed at consolidating a profile of educator or leader fully capable of critically reading reality, accompanying vulnerability, and generating sustainable social transformation.',
+  },
+}
 
-const t = content[lang];
+const t = content[lang]
 ---
 
-<ul
-    class="flex flex-col md:flex-row flex-wrap justify-center gap-6 list-none p-0 m-0"
->
-    <!-- Card 1 -->
-    <ServiceCard
-        title={t.c1_title}
-        description={t.c1_desc}
-        iconWrapperClasses="bg-orange-500/10 dark:bg-orange-500/20 text-orange-600 dark:text-orange-400"
-        delay={200}
+<ul class="flex flex-col md:flex-row flex-wrap justify-center gap-6 list-none p-0 m-0">
+  <!-- Card 1 -->
+  <ServiceCard
+    title={t.c1_title}
+    description={t.c1_desc}
+    iconWrapperClasses="bg-orange-500/10 dark:bg-orange-500/20 text-orange-600 dark:text-orange-400"
+    delay={200}
+  >
+    <svg
+      slot="icon"
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
     >
-        <svg
-            slot="icon"
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-        >
-            <path d="M12 20h9"></path>
-            <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4 Z"></path>
-        </svg>
-    </ServiceCard>
+      <path d="M12 20h9"></path>
+      <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4 Z"></path>
+    </svg>
+  </ServiceCard>
 
-    <!-- Card 2 -->
-    <ServiceCard
-        title={t.c2_title}
-        description={t.c2_desc}
-        iconWrapperClasses="bg-amber-500/10 dark:bg-amber-500/20 text-amber-600 dark:text-amber-400"
-        delay={350}
+  <!-- Card 2 -->
+  <ServiceCard
+    title={t.c2_title}
+    description={t.c2_desc}
+    iconWrapperClasses="bg-amber-500/10 dark:bg-amber-500/20 text-amber-600 dark:text-amber-400"
+    delay={350}
+  >
+    <svg
+      slot="icon"
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
     >
-        <svg
-            slot="icon"
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-        >
-            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-            <polyline points="2 12 12 17 22 12"></polyline>
-            <polyline points="2 17 12 22 22 17"></polyline>
-        </svg>
-    </ServiceCard>
+      <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+      <polyline points="2 12 12 17 22 12"></polyline>
+      <polyline points="2 17 12 22 22 17"></polyline>
+    </svg>
+  </ServiceCard>
 
-    <!-- Card 3 -->
-    <ServiceCard
-        title={t.c3_title}
-        description={t.c3_desc}
-        iconWrapperClasses="bg-blue-500/10 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400"
-        delay={500}
-        wFull={true}
+  <!-- Card 3 -->
+  <ServiceCard
+    title={t.c3_title}
+    description={t.c3_desc}
+    iconWrapperClasses="bg-blue-500/10 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400"
+    delay={500}
+    wFull={true}
+  >
+    <svg
+      slot="icon"
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
     >
-        <svg
-            slot="icon"
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-        >
-            <circle cx="12" cy="12" r="10"></circle>
-            <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
-            <path d="M2 12h20"></path>
-        </svg>
-    </ServiceCard>
+      <circle cx="12" cy="12" r="10"></circle>
+      <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+      <path d="M2 12h20"></path>
+    </svg>
+  </ServiceCard>
 </ul>
