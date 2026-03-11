@@ -28,7 +28,7 @@ export const ui = {
     'hero.contact': 'Contáctanos',
     'cards.about.title': 'Quiénes somos<br>y qué nos mueve',
     'cards.about.content':
-      'Somos un grupo interdisciplinario de profesionales unidos por un deseo: ofrecer aportes de alta calidad a tus proyectos comunitarios. Mediante nuestra consultoría educativa en Argentina y el asesoramiento pastoral institucional, aportamos perspectivas innovadoras en desarrollos de contenidos pedagógicos. Nuestro horizonte es fortalecer tus capacidades y facilitar dinámicas de trabajo en red.',
+      'Fundado por <button type="button" data-open-modal="founder-modal" class="font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors focus:outline-none hover:underline decoration-blue-600 dark:decoration-blue-400 underline-offset-[3px] decoration-1">Juan Pablo Gasme</button>, somos un grupo interdisciplinario de profesionales unidos por un deseo: ofrecer aportes de alta calidad a tus proyectos comunitarios. Mediante nuestra consultoría educativa en Argentina y el asesoramiento pastoral institucional, aportamos perspectivas innovadoras en desarrollos de contenidos pedagógicos. Nuestro horizonte es fortalecer tus capacidades y facilitar dinámicas de trabajo en red.',
     'cards.services.title': 'Nuestras áreas de especialidad',
     'cards.services.content':
       'Nuestros servicios se agrupan en tres campos. Primero, acompañando procesos mediante planificación estratégica para organizaciones sociales y consultorías directivas. Segundo, desarrollando propuestas innovadoras, como la capacitación de equipos pastorales y docentes. Tercero, curando contenidos educativos y comunicacionales de excelencia en soportes impresos y ecosistemas digitales.',
@@ -110,7 +110,7 @@ export const ui = {
     'hero.contact': 'Contact us',
     'cards.about.title': 'Who we are<br>and what drives us',
     'cards.about.content':
-      'We are an interdisciplinary group of professionals united by one desire: offering top-quality contributions to your community projects. Through specialized educational consulting in Latin America and institutional pastoral advisory, we provide innovative perspectives and deep pedagogical content development. Our horizon is strengthening your capacities and facilitating networking dynamics.',
+      'Founded by <button type="button" data-open-modal="founder-modal" class="font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors focus:outline-none hover:underline decoration-blue-600 dark:decoration-blue-400 underline-offset-[3px] decoration-1">Juan Pablo Gasme</button>, we are an interdisciplinary group of professionals united by one desire: offering top-quality contributions to your community projects. Through specialized educational consulting in Latin America and institutional pastoral advisory, we provide innovative perspectives and deep pedagogical content development. Our horizon is strengthening your capacities and facilitating networking dynamics.',
     'cards.services.title': 'Our areas of expertise',
     'cards.services.content':
       'Our services fall into three interactive fields. First, accompanying processes through expert strategic planning for social organizations and solid management consulting. Second, developing training proposals, including comprehensive training of pastoral teams and staff. Third, generating excellent educational content materializing in traditional printed media and modern digital ecosystems.',
