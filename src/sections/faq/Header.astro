@@ -6,34 +6,16 @@ const lang = getLangFromUrl(Astro.url)
 
 const content = {
   es: {
-    title: 'Preguntas frecuentes',
+    title1: '¿Tenés alguna duda o consulta?',
+    title2: 'Encontrá respuestas en nuestras preguntas frecuentes.',
   },
   en: {
-    title: 'Frequently Asked Questions',
+    title1: 'Do you have any doubts or inquiries?',
+    title2: 'Find answers in our frequently asked questions.',
   },
 }
 
 const t = content[lang]
 ---
 
-<PageHeader
-  title={t.title}
-  iconWrapperClasses="bg-zinc-500/10 dark:bg-zinc-500/20 text-zinc-600 dark:text-zinc-400 border-zinc-500/20"
->
-  <svg
-    slot="icon"
-    xmlns="http://www.w3.org/2000/svg"
-    width="32"
-    height="32"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    stroke-width="2"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-  >
-    <circle cx="12" cy="12" r="10"></circle>
-    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
-    <path d="M12 17h.01"></path>
-  </svg>
-</PageHeader>
+<PageHeader title1={t.title1} title2={t.title2} />

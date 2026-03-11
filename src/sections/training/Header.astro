@@ -6,32 +6,16 @@ const lang = getLangFromUrl(Astro.url)
 
 const content = {
   es: {
-    title: 'Formación integral',
+    title1: 'Capacitación continua para tu equipo.',
+    title2: 'Desarrollamos habilidades y competencias sólidas.',
   },
   en: {
-    title: 'Comprehensive Training',
+    title1: 'Continuous training for your team.',
+    title2: 'We develop solid skills and competencies.',
   },
 }
 
 const t = content[lang]
 ---
 
-<PageHeader
-  title={t.title}
-  iconWrapperClasses="bg-emerald-500/10 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border-emerald-500/20"
->
-  <svg
-    slot="icon"
-    xmlns="http://www.w3.org/2000/svg"
-    width="32"
-    height="32"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    stroke-width="2"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-  >
-    <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path>
-  </svg>
-</PageHeader>
+<PageHeader title1={t.title1} title2={t.title2} />
