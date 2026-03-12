@@ -7,7 +7,7 @@ Guía de referencia para replicar el lenguaje visual del sitio web de Equipo Sur
 ## 1. Filosofía de Diseño
 
 | Pilar | Descripción |
-|---|---|
+| --- | --- |
 | **Minimalismo sofisticado** | Interfaz limpia, sin ruido visual. Cada elemento tiene un propósito. |
 | **Contenido primero** | El diseño se subordina al contenido — no decora, amplifica. |
 | **Elegancia sutil** | Micro-animaciones, transiciones suaves y transparencias en lugar de efectos llamativos. |
@@ -22,7 +22,7 @@ Guía de referencia para replicar el lenguaje visual del sitio web de Equipo Sur
 El diseño no usa paletas complejas. Se basa en un **sistema binario invertible**: dos colores base que intercambian roles según el tema.
 
 | Token | Light Mode | Dark Mode | Uso |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `--primary` | `#131313` (casi negro) | `#f5f5f5` (casi blanco) | Textos, iconos, elementos principales |
 | `--secondary` | `#f5f5f5` (casi blanco) | `#131313` (casi negro) | Fondos, superficies base |
 | `--blue-color` | `#004aca` (azul profundo) | `#689fff` (azul claro) | Acento, links, focus rings |
@@ -35,7 +35,7 @@ El diseño no usa paletas complejas. Se basa en un **sistema binario invertible*
 Se usan colores de la paleta estándar de Tailwind **únicamente con opacidad reducida** como fondo de iconos o indicadores visuales:
 
 | Color | Uso típico | Fondo (light) | Fondo (dark) | Texto (light) | Texto (dark) |
-|---|---|---|---|---|---|
+| --- | --- | --- | --- | --- | --- |
 | **Blue** | Primer acento / email | `blue-500/10` | `blue-500/20` | `blue-600` | `blue-400` |
 | **Emerald** | Segundo acento / WhatsApp | `emerald-500/10` | `emerald-500/20` | `emerald-600` | `emerald-400` |
 | **Amber** | Tercer acento / teléfono | `amber-500/10` | `amber-500/20` | `amber-600` | `amber-400` |
@@ -51,7 +51,7 @@ Se usan colores de la paleta estándar de Tailwind **únicamente con opacidad re
 Es la columna vertebral del sistema visual. Se usa `primary` con diferentes opacidades para crear jerarquía:
 
 | Valor | Uso |
-|---|---|
+| --- | --- |
 | `primary` (100%) | Títulos principales, botones CTA |
 | `primary/90` | Títulos de cards, texto importante |
 | `primary/80` | Texto de párrafo hero |
@@ -76,7 +76,7 @@ Es la columna vertebral del sistema visual. Se usa `primary` con diferentes opac
 ### 3.2 Escala Tipográfica
 
 | Elemento | Tamaño | Peso | Tracking | Extras |
-|---|---|---|---|---|
+| --- | --- | --- | --- | --- |
 | **H1 (Hero)** | `16–17px` | `normal (400)` | — | `leading-relaxed`, `text-primary/80` |
 | **H1 (Subpágina)** | `2xl → 3xl` | `semibold (600)` | `tracking-tight` | Bicolor: title1 `primary/60` + title2 `primary` |
 | **H2 (Sección)** | `2xl → 3xl` | `bold (700)` | `tracking-tight` | `leading-[1.15]` |
@@ -106,7 +106,7 @@ Es la columna vertebral del sistema visual. Se usa `primary` con diferentes opac
 ### 4.1 Contenedores
 
 | Contenedor | Ancho máximo | Uso |
-|---|---|---|
+| --- | --- | --- |
 | `max-w-175` | `700px` (44rem) | Contenedor global principal (secciones, footer, header) |
 | `max-w-160` | `640px` (40rem) | Hero (más estrecho para lectura óptima) |
 | `max-w-2xl` | `672px` | Modal del fundador |
@@ -118,14 +118,14 @@ Es la columna vertebral del sistema visual. Se usa `primary` con diferentes opac
 ### 4.2 Padding Horizontal
 
 | Dispositivo | Padding |
-|---|---|
+| --- | --- |
 | Mobile | `px-6` (24px) |
 | Desktop (≥ md) | `px-0` (el contenedor `max-w` con `mx-auto` se encarga) |
 
 ### 4.3 Espaciado Vertical entre Secciones
 
 | Contexto | Valor |
-|---|---|
+| --- | --- |
 | Hero → top | `mt-12` (48px) mobile, `mt-16` (64px) desktop |
 | Sección → sección | `mt-24` / `mb-16` (96px / 64px) |
 | Dentro de sección | `gap-6` (24px) o `gap-8` (32px) |
@@ -187,7 +187,7 @@ Las cards son el bloque de construcción principal de todo el contenido:
 **Estilos base de la card:**
 
 | Propiedad | Valor |
-|---|---|
+| --- | --- |
 | Background | `bg-white/50` / `dark:bg-zinc-900/50` |
 | Border | `border border-primary/10` / `dark:border-white/10` |
 | Border radius | `rounded-2xl` (16px) |
@@ -203,7 +203,7 @@ Las cards son el bloque de construcción principal de todo el contenido:
 **Icono de la card:**
 
 | Propiedad | Valor |
-|---|---|
+| --- | --- |
 | Contenedor | `w-12 h-12` (48×48px) |
 | Border radius | `rounded-xl` (12px) |
 | Fondo | Color semántico al 10% (light) / 20% (dark) |
@@ -212,7 +212,7 @@ Las cards son el bloque de construcción principal de todo el contenido:
 **Layout de cards en grilla:**
 
 | Patrón | Descripción |
-|---|---|
+| --- | --- |
 | **2 columnas + 1 full** | Dos cards a 50% width + una full width (Home About) |
 | **Lista vertical** | Cards apiladas al 100% (subpáginas detail) |
 | **2 columnas iguales** | Dos cards a 50% width en desktop, stack en mobile |
@@ -222,7 +222,7 @@ Las cards son el bloque de construcción principal de todo el contenido:
 #### ButtonCTA (Primario / Sólido)
 
 | Propiedad | Valor |
-|---|---|
+| --- | --- |
 | Background | `bg-primary` |
 | Texto | `text-secondary` |
 | Padding | `px-8 py-3` |
@@ -236,7 +236,7 @@ Las cards son el bloque de construcción principal de todo el contenido:
 #### ButtonOutline (Secundario / Transparente)
 
 | Propiedad | Valor |
-|---|---|
+| --- | --- |
 | Background | `bg-transparent` |
 | Borde | `border border-primary/20` |
 | Texto | `text-primary` |
@@ -251,7 +251,7 @@ Las cards son el bloque de construcción principal de todo el contenido:
 ### 5.3 Tooltips
 
 | Propiedad | Valor |
-|---|---|
+| --- | --- |
 | Background | `bg-primary` |
 | Texto | `text-secondary` |
 | Font size | `11px` |
@@ -265,7 +265,7 @@ Las cards son el bloque de construcción principal de todo el contenido:
 ### 5.4 Modal
 
 | Propiedad | Valor |
-|---|---|
+| --- | --- |
 | Elemento | `<dialog>` nativo HTML |
 | Background | `bg-secondary` |
 | Border | `border border-primary/5` |
@@ -282,7 +282,7 @@ Las cards son el bloque de construcción principal de todo el contenido:
 ### 5.5 Accordion (FAQ)
 
 | Propiedad | Valor |
-|---|---|
+| --- | --- |
 | Elemento | `<details>` / `<summary>` nativo HTML |
 | Background | `bg-white/50` / `dark:bg-zinc-900/50` (cerrado) → `bg-white` / `dark:bg-zinc-900` (abierto) |
 | Border | `border border-primary/10 dark:border-white/10` |
@@ -297,7 +297,7 @@ Las cards son el bloque de construcción principal de todo el contenido:
 Variación especial de card para items de contacto interactivos:
 
 | Propiedad | Valor |
-|---|---|
+| --- | --- |
 | Background | `bg-white` / `dark:bg-zinc-800` (sólido, no transparente) |
 | Hover | `-translate-y-0.5` (sube 2px, más sutil que cards normales) |
 | Ícono | `w-10 h-10` con bg semántica al 10%/20% |
@@ -308,7 +308,7 @@ Variación especial de card para items de contacto interactivos:
 ### 5.7 PageHeader (Subpáginas)
 
 | Propiedad | Valor |
-|---|---|
+| --- | --- |
 | H1 | Dos spans: `title1` en `primary/60` + `title2` en `primary` |
 | Font size | `2xl → 3xl` responsive |
 | Peso | `semibold (600)` |
@@ -319,7 +319,7 @@ Variación especial de card para items de contacto interactivos:
 ### 5.8 Bento Grid (Friends / Partners)
 
 | Propiedad | Valor |
-|---|---|
+| --- | --- |
 | Grid | `grid-cols-2` mobile → `grid-cols-4` desktop |
 | Altura de celda | `h-35` (140px) |
 | Separación | Bordes `border-r border-b border-primary/10` (sin gap, estilo tabla) |
@@ -356,7 +356,7 @@ Card 3: delay 900ms
 Todas las transiciones de estado usan `duration-200` (200ms):
 
 | Elemento | Propiedad | Easing |
-|---|---|---|
+| --- | --- | --- |
 | Cards | `shadow, transform, all` | default (ease) |
 | Links | `color` | default |
 | Botones | `all` | `ease-in-out` |
@@ -368,7 +368,7 @@ Todas las transiciones de estado usan `duration-200` (200ms):
 ### 6.3 Patrones de Hover
 
 | Componente | Efecto |
-|---|---|
+| --- | --- |
 | **Cards** | `shadow-sm → shadow-md` + `-translate-y-1` (sube 4px) |
 | **Contact items** | `shadow-sm → shadow-md` + `-translate-y-0.5` (sube 2px) |
 | **Nav links** | `text-primary/60 → text-primary` |
@@ -387,7 +387,7 @@ Todas las transiciones de estado usan `duration-200` (200ms):
 Todas las separaciones usan **bordes con opacidad muy baja del color primario**:
 
 | Contexto | Valor Light | Valor Dark |
-|---|---|---|
+| --- | --- | --- |
 | **Card exterior** | `border-primary/10` | `border-white/10` |
 | **Separador interno** | `border-primary/5` | `border-white/5` |
 | **Header** | `border-primary/4` | `border-primary/4` |
@@ -402,7 +402,7 @@ Todas las separaciones usan **bordes con opacidad muy baja del color primario**:
 ## 8. Sombras
 
 | Nivel | Clase | Uso |
-|---|---|---|
+| --- | --- | --- |
 | **Reposo** | `shadow-sm` | Cards, contact items |
 | **Hover** | `shadow-md` | Cards en hover |
 | **Elevado** | `shadow-lg` | Botón CTA hover, tooltips |
@@ -414,7 +414,7 @@ Todas las separaciones usan **bordes con opacidad muy baja del color primario**:
 ## 9. Border Radius
 
 | Elemento | Value | Pixels |
-|---|---|---|
+| --- | --- | --- |
 | **Card** | `rounded-2xl` | 16px |
 | **Modal** | `rounded-3xl` | 24px |
 | **Botón** | `rounded-lg` | 8px |
@@ -448,7 +448,7 @@ Todas las separaciones usan **bordes con opacidad muy baja del color primario**:
 ### Diferencias Clave Light → Dark
 
 | Propiedad | Light | Dark |
-|---|---|---|
+| --- | --- | --- |
 | Fondo body | `#f5f5f5` | `#131313` |
 | Texto | `#131313` | `#f5f5f5` |
 | Azul acento | `#004aca` | `#689fff` |
@@ -469,7 +469,7 @@ Todas las separaciones usan **bordes con opacidad muy baja del color primario**:
 ### Breakpoints Usados
 
 | Breakpoint | Ancho | Uso principal |
-|---|---|---|
+| --- | --- | --- |
 | `sm` | `640px` | Botones side-by-side |
 | `md` | `768px` | Layout principal (nav, cards en grid, padding) |
 | `lg` | `1024px` | Gap en cards, texto de títulos |
@@ -477,7 +477,7 @@ Todas las separaciones usan **bordes con opacidad muy baja del color primario**:
 ### Patrones Mobile → Desktop
 
 | Componente | Mobile | Desktop |
-|---|---|---|
+| --- | --- | --- |
 | **Nav** | Hamburger menu, dropdown full-width | Inline links horizontales |
 | **Cards** | Stack vertical full-width | 2 columnas (50% width) |
 | **Botones** | Stack vertical full-width | Side-by-side, auto-width |
@@ -493,7 +493,7 @@ Todas las separaciones usan **bordes con opacidad muy baja del color primario**:
 ### 13.1 Feedback de Interacción
 
 | Acción | Feedback |
-|---|---|
+| --- | --- |
 | **Copiar al portapapeles** | Ícono cambia: Copy → Check verde, tooltip "Copiado", revierte tras 2s |
 | **Hover en card** | Sube 4px + sombra crece |
 | **Click en botón** | `scale(0.95)` instantáneo |
@@ -527,7 +527,7 @@ Todas las separaciones usan **bordes con opacidad muy baja del color primario**:
 ### 13.5 Accesibilidad
 
 | Feature | Implementación |
-|---|---|
+| --- | --- |
 | **Skip to content** | Link `sr-only` visible en focus |
 | **Focus visible** | `focus-visible:ring-2 ring-blue ring-offset-2 ring-offset-secondary` |
 | **aria-current** | En links de nav activos |
