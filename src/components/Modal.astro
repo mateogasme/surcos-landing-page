@@ -1,5 +1,6 @@
 ---
 import CloseIcon from '@/assets/icons/ui/close.svg'
+import { getLangFromUrl, useTranslations } from '@/i18n/utils'
 
 interface Props {
   id: string
@@ -16,10 +17,14 @@ const {
   marginTop = 'mt-[250px]',
   fullScreenMobile = false,
 } = Astro.props
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
 ---
 
 <dialog
   id={id}
+  aria-labelledby={`modal-title-${id}`}
   class={`custom-modal fixed inset-0 z-100 bg-secondary p-0 shadow-2xl shadow-black/20 text-primary border border-primary/5 transition-all duration-200
         ${
           fullScreenMobile
@@ -32,12 +37,13 @@ const {
 >
   <div class="p-8">
     <div class="flex items-center justify-between mb-6">
-      <h3 class="text-xl font-bold tracking-tight">{title}</h3>
+      <h3 id={`modal-title-${id}`} class="text-xl font-bold tracking-tight">{title}</h3>
       <button
         data-close-modal
-        class="text-primary/60 hover:text-primary transition-colors rounded-lg p-1.5 hover:bg-primary/5 outline-none"
+        aria-label={t('aria.modal.close') as string}
+        class="text-primary/60 hover:text-primary transition-colors rounded-lg p-1.5 hover:bg-primary/5 outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-secondary"
       >
-        <CloseIcon class="w-4.5 h-4.5" />
+        <CloseIcon class="w-4.5 h-4.5" aria-hidden="true" />
       </button>
     </div>
     <div class="flex flex-col gap-5 text-primary/80">
@@ -65,14 +71,31 @@ const {
         }, 200) // 200ms coincide con la transición CSS
       }
 
+      let lastOpener: HTMLElement | null = null
+
       openButtons.forEach((btn) => {
         btn.addEventListener('click', () => {
+          lastOpener = btn as HTMLElement
           modal.showModal()
           document.body.classList.add('modal-open')
+          // Move focus to the first focusable element inside the modal
+          const focusable = modal.querySelector<HTMLElement>(
+            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+          )
+          focusable?.focus()
         })
       })
 
-      btnClose?.addEventListener('click', closeModal)
+      const closeModalAndReturn = () => {
+        closeModal()
+        // Return focus to the element that opened the modal
+        const opener = lastOpener
+        if (opener) {
+          setTimeout(() => opener.focus(), 210)
+        }
+      }
+
+      btnClose?.addEventListener('click', closeModalAndReturn)
 
       modal.addEventListener('click', (e) => {
         const dialogDimensions = modal.getBoundingClientRect()
@@ -82,14 +105,14 @@ const {
           e.clientY < dialogDimensions.top ||
           e.clientY > dialogDimensions.bottom
         ) {
-          closeModal()
+          closeModalAndReturn()
         }
       })
 
       modal.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
           e.preventDefault()
-          closeModal()
+          closeModalAndReturn()
         }
       })
     })

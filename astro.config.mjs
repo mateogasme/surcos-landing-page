@@ -9,6 +9,7 @@ export default defineConfig({
   site: 'https://equiposurcos.com.ar',
   integrations: [
     sitemap({
+      filter: (page) => !page.includes('/componentes'),
       i18n: {
         defaultLocale: 'es',
         locales: {

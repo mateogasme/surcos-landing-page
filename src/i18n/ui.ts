@@ -17,6 +17,9 @@ export const ui = {
     'nav.works': 'Trabajos',
     'nav.faq': 'FAQ',
     'lang.tooltip': 'Switch to English',
+    'aria.skip_nav': 'Skip to main content',
+    'aria.theme.toggle': 'Toggle dark/light mode',
+    'aria.modal.close': 'Close dialog',
     'modal.title': 'Datos e información',
     'modal.description':
       'Si querés hacernos alguna sugerencia, reportar un error o simplemente ponerte en contacto, podés hacerlo a través de los siguientes medios:',
@@ -99,6 +102,9 @@ export const ui = {
     'nav.works': 'Works',
     'nav.faq': 'FAQ',
     'lang.tooltip': 'Cambiar a Español',
+    'aria.skip_nav': 'Ir al contenido principal',
+    'aria.theme.toggle': 'Alternar modo oscuro/claro',
+    'aria.modal.close': 'Cerrar ventana',
     'modal.title': 'Contact Information',
     'modal.description':
       'If you want to make a suggestion, report an error, or simply get in touch, you can do so through the following channels:',

@@ -114,6 +114,7 @@ const friends = [
                 <Image
                   src={friend.img}
                   alt={t(friend.altKey) as string}
+                  loading="lazy"
                   class={`max-w-full max-h-full object-contain transition-all duration-200 transform group-hover:scale-105 ${friend.imgClass || ''}`}
                 />
               </a>

@@ -169,6 +169,7 @@ const t = useTranslations(lang)
       </div>
     </div>
   </div>
+  <div aria-live="polite" aria-atomic="true" class="sr-only" id="copy-live-region"></div>
 </section>
 
 <script>
@@ -188,6 +189,7 @@ const t = useTranslations(lang)
             const iconCheck = target.querySelector('.icon-check')
             const tooltipText = target.querySelector('.tooltip-text')
             const tooltipCopied = target.querySelector('.tooltip-copied')
+            const liveRegion = document.getElementById('copy-live-region')
 
             iconCopy?.classList.add('hidden')
             iconCopy?.classList.remove('block')
@@ -199,6 +201,10 @@ const t = useTranslations(lang)
             tooltipCopied?.classList.remove('opacity-0')
             tooltipCopied?.classList.add('opacity-100')
 
+            if (liveRegion) {
+              liveRegion.textContent = tooltipCopied?.textContent ?? ''
+            }
+
             setTimeout(() => {
               iconCheck?.classList.add('hidden')
               iconCheck?.classList.remove('block')
@@ -209,6 +215,8 @@ const t = useTranslations(lang)
               tooltipCopied?.classList.remove('opacity-100')
               tooltipText?.classList.remove('hidden')
               tooltipText?.classList.add('flex')
+
+              if (liveRegion) liveRegion.textContent = ''
             }, 2000)
           } catch (err) {
             // eslint-disable-next-line no-console

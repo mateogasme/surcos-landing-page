@@ -18,7 +18,9 @@ export interface Props {
   ogImage?: string
 }
 
-const { title, description, ogImage = '/img/og-default.png' } = Astro.props
+// TODO: Replace '/img/og-default.png' with a proper 1200×630px OG image once created.
+// The file is currently missing from public/img/ — using the site logo as a temporary fallback.
+const { title, description, ogImage = '/img/equiposurcos.webp' } = Astro.props
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
@@ -127,9 +129,16 @@ const organizationSchema = JSON.stringify({
     </script>
   </head>
   <body class="bg-secondary text-primary min-h-screen flex flex-col">
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-200 focus:px-4 focus:py-2 focus:bg-secondary focus:text-primary focus:border focus:border-primary/20 focus:rounded-lg focus:text-sm focus:font-medium focus:shadow-lg"
+    >
+      {t('aria.skip_nav')}
+    </a>
+
     <Header />
 
-    <main class="grow flex flex-col items-center w-full">
+    <main id="main-content" class="grow flex flex-col items-center w-full">
       <slot />
     </main>
 
