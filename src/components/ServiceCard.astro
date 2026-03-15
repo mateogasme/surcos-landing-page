@@ -3,19 +3,19 @@ export interface Props {
   title: string
   description: string
   iconWrapperClasses: string
-  delay?: number
+
   wFull?: boolean
 }
 
-const { title, description, iconWrapperClasses, delay = 0, wFull = false } = Astro.props
+const { title, description, iconWrapperClasses, wFull = false } = Astro.props
 ---
 
 <li
   class:list={[
-    'flex flex-col gap-4 p-8 rounded-2xl bg-white/50 dark:bg-zinc-900/50 border border-primary/10 dark:border-white/10 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200 animate-fade-in-up',
+    'flex flex-col gap-4 p-8 rounded-2xl bg-white/50 dark:bg-zinc-900/50 border border-primary/10 dark:border-white/10 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200',
     wFull ? 'w-full' : 'md:w-[calc(50%-0.75rem)] w-full',
   ]}
-  style={`animation-delay: ${delay}ms;`}
+
 >
   <div class={`w-12 h-12 flex items-center justify-center rounded-xl ${iconWrapperClasses}`}>
     <slot name="icon" />

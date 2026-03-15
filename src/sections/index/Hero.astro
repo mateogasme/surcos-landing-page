@@ -16,17 +16,17 @@ const t = useTranslations(lang)
     <Image
       src={equipoSurcos}
       alt="Equipo Surcos"
-      class="w-1/2 mx-auto h-auto object-cover invert dark:invert-0 transition-all duration-200 animate-fade-in-up"
+      class="w-1/2 mx-auto h-auto object-cover invert dark:invert-0 transition-all duration-200"
       loading="eager"
     />
     <h1
       id="hero-heading"
-      class="text-[16px] md:text-[17px] text-primary/80 font-normal leading-relaxed text-center w-[90%] mx-auto animate-fade-in-up animate-delay-200"
+      class="text-[16px] md:text-[17px] text-primary/80 font-normal leading-relaxed text-center w-[90%] mx-auto"
       set:html={t('hero.text')}
     />
 
     <div
-      class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-2 animate-fade-in-up animate-delay-400"
+      class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-2"
     >
       <ButtonCTA href="#about">
         {t('hero.about')}

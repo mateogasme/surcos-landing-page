@@ -149,7 +149,7 @@ const isActive = (path: string) => {
 </header>
 
 <script>
-  document.addEventListener('astro:page-load', () => {
+  document.addEventListener('DOMContentLoaded', () => {
     const themeToggle = document.getElementById('theme-toggle')
     const moonIcon = document.getElementById('moon-icon')
     const sunIcon = document.getElementById('sun-icon')

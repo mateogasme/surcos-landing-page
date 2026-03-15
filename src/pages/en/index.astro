@@ -1,10 +1,10 @@
 ---
 import Layout from '@/layouts/Layout.astro'
-import Hero from '@/sections/Hero.astro'
-import About from '@/sections/About.astro'
-import Friends from '@/sections/Friends.astro'
-import Founder from '@/sections/Founder.astro'
-import Contact from '@/sections/Contact.astro'
+import Hero from '@/sections/index/Hero.astro'
+import About from '@/sections/index/About.astro'
+import Friends from '@/sections/index/Friends.astro'
+import Founder from '@/sections/index/Founder.astro'
+import Contact from '@/sections/index/Contact.astro'
 import { getLangFromUrl, useTranslations } from '@/i18n/utils'
 
 const lang = getLangFromUrl(Astro.url)
@@ -16,7 +16,7 @@ const personSchema = JSON.stringify({
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: 'Juan Pablo Gasme',
-  jobTitle: t('founder.subtitle'),
+  jobTitle: t('founder.title'),
   worksFor: {
     '@type': 'Organization',
     name: 'Equipo Surcos',

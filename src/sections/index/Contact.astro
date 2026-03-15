@@ -15,8 +15,7 @@ const t = useTranslations(lang)
 <section class="w-full mb-16 px-6 md:px-0" id="contact" aria-labelledby="contact-heading">
   <div class="max-w-175 mx-auto">
     <div
-      class="relative w-full rounded-2xl overflow-hidden bg-white/50 dark:bg-zinc-900/50 backdrop-blur-md border border-primary/10 dark:border-white/10 shadow-sm animate-fade-in-up p-8 flex flex-col md:flex-row gap-8 items-center hover:shadow-md hover:-translate-y-1 transition-all duration-200"
-      style="animation-delay: 300ms"
+      class="relative w-full rounded-2xl overflow-hidden bg-white/50 dark:bg-zinc-900/50 backdrop-blur-md border border-primary/10 dark:border-white/10 shadow-sm p-8 flex flex-col md:flex-row gap-8 items-center hover:shadow-md hover:-translate-y-1 transition-all duration-200"
     >
       <!-- Texto Izquierda -->
       <div
@@ -173,7 +172,7 @@ const t = useTranslations(lang)
 </section>
 
 <script>
-  document.addEventListener('astro:page-load', () => {
+  document.addEventListener('DOMContentLoaded', () => {
     const copyBtns = document.querySelectorAll('.copy-btn')
 
     copyBtns.forEach((btn) => {
