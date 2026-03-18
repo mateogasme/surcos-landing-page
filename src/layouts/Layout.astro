@@ -2,8 +2,6 @@
 import '@fontsource-variable/onest'
 import '@/styles/global.css'
 
-
-
 import { getLangFromUrl, useTranslations } from '@/i18n/utils'
 
 import Analytics from '@vercel/analytics/astro'
@@ -101,8 +99,6 @@ const organizationSchema = JSON.stringify({
 
     <slot name="jsonld" />
 
-
-
     <script is:inline>
       function applyTheme() {
         const theme = (() => {
@@ -124,8 +120,6 @@ const organizationSchema = JSON.stringify({
       }
 
       applyTheme()
-
-
     </script>
   </head>
   <body class="bg-secondary text-primary min-h-screen flex flex-col">
