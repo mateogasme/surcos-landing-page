@@ -1,6 +1,6 @@
 ---
 import { getLangFromUrl, useTranslations } from '@/i18n/utils'
-import Modal from '@/components/Modal.astro'
+import Modal from '@/components/ui/Modal.astro'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
@@ -46,7 +46,10 @@ const cards = [
               <span set:html={card.icon} />
             </div>
             <h3 class="text-xl font-semibold text-primary/90 leading-snug" set:html={card.title} />
-            <p class="text-[0.95rem] text-primary/70 leading-relaxed font-normal text-pretty" set:html={card.content} />
+            <p
+              class="text-[0.95rem] text-primary/70 leading-relaxed font-normal text-pretty"
+              set:html={card.content}
+            />
           </li>
         ))
       }
@@ -72,23 +75,28 @@ const cards = [
         </h3>
         <ul class="flex flex-col gap-3">
           <li class="flex gap-3 items-start">
-            <div class="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 shrink-0" aria-hidden="true" />
+            <div class="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 shrink-0" aria-hidden="true">
+            </div>
             <p set:html={t('founder.role1')} />
           </li>
           <li class="flex gap-3 items-start">
-            <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-2 shrink-0" aria-hidden="true" />
+            <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-2 shrink-0" aria-hidden="true">
+            </div>
             <p set:html={t('founder.role2')} />
           </li>
           <li class="flex gap-3 items-start">
-            <div class="w-1.5 h-1.5 rounded-full bg-amber-500 mt-2 shrink-0" aria-hidden="true" />
+            <div class="w-1.5 h-1.5 rounded-full bg-amber-500 mt-2 shrink-0" aria-hidden="true">
+            </div>
             <p set:html={t('founder.role3')} />
           </li>
           <li class="flex gap-3 items-start">
-            <div class="w-1.5 h-1.5 rounded-full bg-indigo-500 mt-2 shrink-0" aria-hidden="true" />
+            <div class="w-1.5 h-1.5 rounded-full bg-indigo-500 mt-2 shrink-0" aria-hidden="true">
+            </div>
             <p set:html={t('founder.role4')} />
           </li>
           <li class="flex gap-3 items-start">
-            <div class="w-1.5 h-1.5 rounded-full bg-purple-500 mt-2 shrink-0" aria-hidden="true" />
+            <div class="w-1.5 h-1.5 rounded-full bg-purple-500 mt-2 shrink-0" aria-hidden="true">
+            </div>
             <p set:html={t('founder.role5')} />
           </li>
         </ul>
