@@ -40,7 +40,7 @@ const t = useTranslations(lang)
           target="_blank"
           rel="noopener noreferrer"
           class="group relative flex items-center justify-between p-4 rounded-xl bg-white dark:bg-zinc-800 border border-primary/5 dark:border-white/10 transition-all duration-200 overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-0.5 w-full"
-          aria-label="WhatsApp: +54 9 11 6259-6258"
+          aria-label={t('aria.contact.whatsapp')}
         >
           <div class="flex items-center gap-4 relative z-10 w-full">
             <div
@@ -70,7 +70,7 @@ const t = useTranslations(lang)
         <button
           class="copy-btn group relative flex items-center justify-between p-4 rounded-xl bg-white dark:bg-zinc-800 border border-primary/5 dark:border-white/10 transition-all duration-200 overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-0.5 w-full text-left cursor-pointer"
           data-copy="info@equiposurcos.com.ar"
-          aria-label="Copiar email: info@equiposurcos.com.ar"
+          aria-label={t('aria.contact.email.copy')}
         >
           <div class="flex items-center gap-4 relative z-10 w-full">
             <div
@@ -120,7 +120,7 @@ const t = useTranslations(lang)
         <button
           class="copy-btn group relative flex items-center justify-between p-4 rounded-xl bg-white dark:bg-zinc-800 border border-primary/5 dark:border-white/10 transition-all duration-200 overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-0.5 w-full text-left cursor-pointer"
           data-copy="+54 9 11 6259-6258"
-          aria-label="Copiar teléfono: +54 9 11 6259-6258"
+          aria-label={t('aria.contact.phone.copy')}
         >
           <div class="flex items-center gap-4 relative z-10 w-full">
             <div
