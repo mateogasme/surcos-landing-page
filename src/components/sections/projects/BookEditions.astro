@@ -54,19 +54,18 @@ const content = {
 
 const t = content[lang]
 
-const statusColors: Record<string, { bg: string; text: string; dot: string }> =
-  {
-    emerald: {
-      bg: 'bg-emerald-500/10 dark:bg-emerald-500/20',
-      text: 'text-emerald-600 dark:text-emerald-400',
-      dot: 'bg-emerald-500',
-    },
-    amber: {
-      bg: 'bg-amber-500/10 dark:bg-amber-500/20',
-      text: 'text-amber-600 dark:text-amber-400',
-      dot: 'bg-amber-500',
-    },
-  }
+const statusColors: Record<string, { bg: string; text: string; dot: string }> = {
+  emerald: {
+    bg: 'bg-emerald-500/10 dark:bg-emerald-500/20',
+    text: 'text-emerald-600 dark:text-emerald-400',
+    dot: 'bg-emerald-500',
+  },
+  amber: {
+    bg: 'bg-amber-500/10 dark:bg-amber-500/20',
+    text: 'text-amber-600 dark:text-amber-400',
+    dot: 'bg-amber-500',
+  },
+}
 ---
 
 <section class="mb-12">
@@ -83,7 +82,7 @@ const statusColors: Record<string, { bg: string; text: string; dot: string }> =
         t.items.map((item) => {
           const sc = statusColors[item.statusColor] || statusColors.emerald
           return (
-            <li class="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 px-7 py-5 hover:bg-primary/2 dark:hover:bg-white/2 transition-colors duration-200">
+            <li class="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 px-7 py-5">
               <div class="flex items-center gap-3 shrink-0 sm:w-auto">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -110,16 +109,9 @@ const statusColors: Record<string, { bg: string; text: string; dot: string }> =
                   {item.desc}
                 </p>
               </div>
-              <div
-                class={`flex items-center gap-1.5 shrink-0 px-2.5 py-1 rounded-full ${sc.bg}`}
-              >
-                <div
-                  class={`w-1.5 h-1.5 rounded-full ${sc.dot}`}
-                  aria-hidden="true"
-                />
-                <span
-                  class={`text-[0.75rem] font-medium ${sc.text} whitespace-nowrap`}
-                >
+              <div class={`flex items-center gap-1.5 shrink-0 px-2.5 py-1 rounded-full ${sc.bg}`}>
+                <div class={`w-1.5 h-1.5 rounded-full ${sc.dot}`} aria-hidden="true" />
+                <span class={`text-[0.75rem] font-medium ${sc.text} whitespace-nowrap`}>
                   {item.status}
                 </span>
               </div>

@@ -9,10 +9,10 @@ const faqs = faqsData[lang]
 <div class="flex flex-col gap-4">
   {
     faqs.map((faq) => (
-      <details class="faq-detail group rounded-2xl bg-white/50 dark:bg-zinc-900/50 border border-primary/10 dark:border-white/10 shadow-sm transition-all overflow-hidden">
+      <details class="faq-detail group rounded-2xl bg-white/50 dark:bg-zinc-900/50 border border-primary/10 dark:border-white/10 shadow-sm transition-shadow overflow-hidden">
         <summary class="flex justify-between items-center font-semibold text-primary/90 text-[1.1rem] leading-snug list-none [&::-webkit-details-marker]:hidden p-6 cursor-pointer">
           {faq.question}
-          <span class="faq-icon transition-transform duration-200 opacity-50 ml-4 shrink-0">
+          <span class="faq-icon transition-transform duration-200 ease-out opacity-50 ml-4 shrink-0">
             <svg
               fill="none"
               height="24"
@@ -29,7 +29,7 @@ const faqs = faqsData[lang]
           </span>
         </summary>
         <div
-          class="faq-content transition-all duration-200 ease-in-out opacity-0 overflow-hidden"
+          class="faq-content transition-max-height duration-200 ease-out opacity-0 overflow-hidden"
           style="max-height: 0px;"
         >
           <div class="px-6 pt-2">
@@ -46,10 +46,23 @@ const faqs = faqsData[lang]
 </div>
 
 <style>
-  /* Prevent text selection on summary click and ensure smooth usage */
   details summary {
     user-select: none;
     outline: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .faq-detail,
+    .faq-icon,
+    .faq-content {
+      transition: none !important;
+    }
+  }
+
+  @media (hover: none) {
+    details summary:hover {
+      background: transparent;
+    }
   }
 </style>
 
@@ -57,8 +70,9 @@ const faqs = faqsData[lang]
   document.addEventListener('DOMContentLoaded', () => {
     const detailsElements = document.querySelectorAll('.faq-detail')
 
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
     detailsElements.forEach((detail) => {
-      // Prevenir doble inicialización en cambios de idioma (Astro Transitions duplicate listeners)
       if (detail.hasAttribute('data-faq-init')) return
       detail.setAttribute('data-faq-init', 'true')
 
@@ -68,33 +82,48 @@ const faqs = faqsData[lang]
 
       if (!summary || !content) return
 
+      const duration = 200
+
       summary.addEventListener('click', (e) => {
         e.preventDefault()
 
         const isClosing = detail.hasAttribute('open')
 
+        if (prefersReducedMotion) {
+          if (isClosing) {
+            detail.removeAttribute('open')
+            icon.style.transform = 'rotate(0deg)'
+            detail.classList.remove('shadow-md', 'bg-white', 'dark:bg-zinc-900')
+          } else {
+            detail.setAttribute('open', '')
+            detail.classList.add('shadow-md', 'bg-white', 'dark:bg-zinc-900')
+            icon.style.transform = 'rotate(180deg)'
+          }
+          return
+        }
+
         if (isClosing) {
           content.style.maxHeight = content.scrollHeight + 'px'
-          void content.offsetHeight
+          void content.offsetWidth
           content.style.maxHeight = '0px'
           content.style.opacity = '0'
           icon.style.transform = 'rotate(0deg)'
           detail.classList.remove('shadow-md', 'bg-white', 'dark:bg-zinc-900')
           setTimeout(() => {
             detail.removeAttribute('open')
-          }, 200) // 200ms transition duration
+          }, duration)
         } else {
           detail.setAttribute('open', '')
           detail.classList.add('shadow-md', 'bg-white', 'dark:bg-zinc-900')
           content.style.maxHeight = '0px'
           content.style.opacity = '0'
-          void content.offsetHeight
+          void content.offsetWidth
           content.style.maxHeight = content.scrollHeight + 100 + 'px'
           content.style.opacity = '1'
           icon.style.transform = 'rotate(180deg)'
           setTimeout(() => {
             content.style.maxHeight = 'none'
-          }, 200)
+          }, duration)
         }
       })
     })

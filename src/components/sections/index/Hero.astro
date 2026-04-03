@@ -16,7 +16,7 @@ const t = useTranslations(lang)
     <Image
       src={equipoSurcos}
       alt="Equipo Surcos"
-      class="w-1/2 mx-auto h-auto object-cover invert dark:invert-0 transition-all duration-200"
+      class="w-1/2 mx-auto h-auto object-cover invert dark:invert-0 transition-filter duration-160 ease-out"
       loading="eager"
     />
     <h1
@@ -25,9 +25,7 @@ const t = useTranslations(lang)
       set:html={t('hero.text')}
     />
 
-    <div
-      class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-2"
-    >
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-2">
       <ButtonCTA href="#about">
         {t('hero.about')}
       </ButtonCTA>

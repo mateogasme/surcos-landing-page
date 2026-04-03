@@ -97,7 +97,9 @@ const colorMap: Record<string, { bg: string; text: string; dot: string }> = {
 ---
 
 <section>
-  <div class="rounded-2xl bg-white/50 dark:bg-zinc-900/50 border border-primary/10 dark:border-white/10 shadow-sm transition-all duration-200 overflow-hidden">
+  <div
+    class="rounded-2xl bg-white/50 dark:bg-zinc-900/50 border border-primary/10 dark:border-white/10 shadow-sm transition-all duration-200 overflow-hidden"
+  >
     <header class="px-8 pt-6 pb-4 border-b border-primary/10 dark:border-white/10">
       <h2 class="text-xl font-bold text-primary tracking-tight">
         {t.title}
@@ -109,19 +111,12 @@ const colorMap: Record<string, { bg: string; text: string; dot: string }> = {
         return (
           <>
             {/* Divider between clients — full width, edge to edge */}
-            {clientIdx > 0 && (
-              <div class="border-t border-primary/10 dark:border-white/10" />
-            )}
+            {clientIdx > 0 && <div class="border-t border-primary/10 dark:border-white/10" />}
 
             {/* Client header */}
             <div class="flex items-center gap-3 px-8 pt-7 pb-4">
-              <div
-                class={`w-2 h-2 rounded-full ${colors.dot} shrink-0`}
-                aria-hidden="true"
-              />
-              <h3 class="text-lg font-semibold text-primary/90 leading-snug">
-                {client.name}
-              </h3>
+              <div class={`w-2 h-2 rounded-full ${colors.dot} shrink-0`} aria-hidden="true" />
+              <h3 class="text-lg font-semibold text-primary/90 leading-snug">{client.name}</h3>
               <span class="text-xs font-medium text-primary/40 ml-auto tabular-nums">
                 {client.projects.length}{' '}
                 {client.projects.length === 1

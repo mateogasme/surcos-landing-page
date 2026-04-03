@@ -2,7 +2,7 @@
 const { href, class: className, ...props } = Astro.props
 
 const baseClass =
-  'flex justify-center items-center w-full sm:w-auto px-8 py-3 bg-transparent border border-primary/20 text-primary font-medium text-[0.875rem] rounded-lg hover:bg-primary/5 hover:border-primary/40 hover:shadow-lg active:scale-95 transition-all duration-200 ease-in-out cursor-pointer'
+  'flex justify-center items-center w-full sm:w-auto px-8 py-3 bg-transparent border border-primary/20 text-primary font-medium text-[0.875rem] rounded-lg hover:bg-primary/2 hover:border-primary/40 active:scale-[0.97] transition-transform duration-160 ease-out cursor-pointer select-none'
 const combinedClass = className ? `${baseClass} ${className}` : baseClass
 ---
 

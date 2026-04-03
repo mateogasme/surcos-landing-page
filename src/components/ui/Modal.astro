@@ -25,7 +25,7 @@ const t = useTranslations(lang)
 <dialog
   id={id}
   aria-labelledby={`modal-title-${id}`}
-  class={`custom-modal fixed inset-0 z-100 bg-secondary p-0 shadow-2xl shadow-black/20 text-primary border border-primary/5 transition-all duration-200
+  class={`custom-modal fixed inset-0 z-100 bg-secondary p-0 shadow-2xl shadow-black/20 text-primary border border-primary/5 transition-opacity duration-160 ease-out
         ${
           fullScreenMobile
             ? 'w-full h-dvh max-h-none max-w-none m-0 rounded-none md:w-[90%] md:h-auto md:rounded-3xl md:m-auto ' +
@@ -80,7 +80,7 @@ const t = useTranslations(lang)
           document.body.classList.add('modal-open')
           // Move focus to the first focusable element inside the modal
           const focusable = modal.querySelector<HTMLElement>(
-            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
           )
           focusable?.focus()
         })
