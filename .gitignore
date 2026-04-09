@@ -4,6 +4,9 @@ dist/
 # generated types
 .astro/
 
+# cache
+.cache/
+
 # dependencies
 node_modules/
 
@@ -34,3 +37,5 @@ skills-lock.json
 
 # Claude-specific
 .claude/
+CLAUDE.md
+DESIGN.md
