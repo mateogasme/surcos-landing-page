@@ -4,6 +4,8 @@ import '@/styles/global.css'
 
 import { getLangFromUrl, useTranslations } from '@/i18n/utils'
 
+import { ViewTransitions } from 'astro:transitions'
+
 import Analytics from '@vercel/analytics/astro'
 import SpeedInsights from '@vercel/speed-insights/astro'
 
@@ -99,6 +101,8 @@ const organizationSchema = JSON.stringify({
 
     <slot name="jsonld" />
 
+    <ViewTransitions />
+
     <script is:inline>
       function applyTheme() {
         const theme = (() => {
@@ -120,6 +124,7 @@ const organizationSchema = JSON.stringify({
       }
 
       applyTheme()
+      document.addEventListener('astro:after-swap', applyTheme)
     </script>
   </head>
   <body class="bg-secondary text-primary min-h-screen flex flex-col">

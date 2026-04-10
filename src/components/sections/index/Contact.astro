@@ -39,7 +39,7 @@ const t = useTranslations(lang)
           href="https://wa.me/5491162596258"
           target="_blank"
           rel="noopener noreferrer"
-          class="group relative flex items-center justify-between p-4 rounded-xl bg-white dark:bg-zinc-800 border border-primary/5 dark:border-white/10 transition-shadow duration-160 ease-out transition-transform overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-0.5 w-full"
+          class="group relative flex items-center justify-between p-4 rounded-xl bg-white dark:bg-zinc-800 border border-primary/5 dark:border-white/10 transition-[box-shadow,transform] duration-160 ease-out overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-0.5 w-full"
           aria-label={t('aria.contact.whatsapp')}
         >
           <div class="flex items-center gap-4 relative z-10 w-full">
@@ -68,7 +68,7 @@ const t = useTranslations(lang)
 
         <!-- Email (Copiar) -->
         <button
-          class="copy-btn group relative flex items-center justify-between p-4 rounded-xl bg-white dark:bg-zinc-800 border border-primary/5 dark:border-white/10 transition-shadow duration-160 ease-out transition-transform overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-0.5 w-full text-left cursor-pointer"
+          class="copy-btn group relative flex items-center justify-between p-4 rounded-xl bg-white dark:bg-zinc-800 border border-primary/5 dark:border-white/10 transition-[box-shadow,transform] duration-160 ease-out overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-0.5 w-full text-left cursor-pointer"
           data-copy="info@equiposurcos.com.ar"
           aria-label={t('aria.contact.email.copy')}
         >
@@ -118,7 +118,7 @@ const t = useTranslations(lang)
 
         <!-- Phone (Copiar) -->
         <button
-          class="copy-btn group relative flex items-center justify-between p-4 rounded-xl bg-white dark:bg-zinc-800 border border-primary/5 dark:border-white/10 transition-shadow duration-160 ease-out transition-transform overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-0.5 w-full text-left cursor-pointer"
+          class="copy-btn group relative flex items-center justify-between p-4 rounded-xl bg-white dark:bg-zinc-800 border border-primary/5 dark:border-white/10 transition-[box-shadow,transform] duration-160 ease-out overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-0.5 w-full text-left cursor-pointer"
           data-copy="+54 9 11 6259-6258"
           aria-label={t('aria.contact.phone.copy')}
         >
@@ -172,7 +172,7 @@ const t = useTranslations(lang)
 </section>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener('astro:page-load', () => {
     const copyBtns = document.querySelectorAll('.copy-btn')
 
     copyBtns.forEach((btn) => {

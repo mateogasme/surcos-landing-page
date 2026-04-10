@@ -12,7 +12,7 @@ const faqs = faqsData[lang]
       <details class="faq-detail group rounded-2xl bg-white/50 dark:bg-zinc-900/50 border border-primary/10 dark:border-white/10 shadow-sm transition-shadow overflow-hidden">
         <summary class="flex justify-between items-center font-semibold text-primary/90 text-[1.1rem] leading-snug list-none [&::-webkit-details-marker]:hidden p-6 cursor-pointer">
           {faq.question}
-          <span class="faq-icon transition-transform duration-200 ease-out opacity-50 ml-4 shrink-0">
+          <span class="faq-icon transition-transform duration-200 ease-out opacity-50 ml-4 shrink-0" aria-hidden="true">
             <svg
               fill="none"
               height="24"
@@ -51,6 +51,12 @@ const faqs = faqsData[lang]
     outline: none;
   }
 
+  details summary:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: -2px;
+    border-radius: inherit;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .faq-detail,
     .faq-icon,
@@ -67,7 +73,7 @@ const faqs = faqsData[lang]
 </style>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener('astro:page-load', () => {
     const detailsElements = document.querySelectorAll('.faq-detail')
 
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
