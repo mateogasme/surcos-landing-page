@@ -113,38 +113,70 @@ const isActive = (path: string) => {
     </nav>
 
     <nav aria-label={lang === 'es' ? 'Ajustes' : 'Settings'} class="flex items-center gap-2">
-      <!-- Botón de Idioma -->
-      <div class="relative group/lang flex">
-        <a
-          href={toggleUrl}
-          id="lang-toggle"
-          aria-label={t('lang.tooltip')}
-          class="flex items-center justify-center w-8 h-8 rounded-lg text-primary/60 hover:text-primary hover:bg-primary/5 transition-colors duration-160 ease-out outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-secondary text-xs font-bold tracking-wide select-none active:scale-[0.97] cursor-pointer"
-        >
-          <span id="lang-text" class="pointer-events-none" aria-hidden="true">
-            {targetLang.toUpperCase()}
-          </span>
-        </a>
-
-        <!-- Tooltip -->
-        <span
-          class="absolute top-full left-1/2 -translate-x-1/2 mt-2 opacity-0 group-hover/lang:opacity-100 group-focus-within/lang:opacity-100 transition-opacity duration-160 ease-out pointer-events-none flex items-center bg-primary text-secondary text-[11px] font-medium rounded-md shadow-lg z-10 px-2.5 py-1.5 min-w-max"
-        >
-          <span id="lang-tooltip-text">{t('lang.tooltip')}</span>
-          <span
-            class="absolute bottom-full left-1/2 -translate-x-1/2 border-4 border-transparent border-b-primary"
-          ></span>
-        </span>
+      <!-- Toggle de Idioma -->
+      <div
+        role="group"
+        aria-label={t('lang.tooltip')}
+        class="flex items-center h-7 rounded-full border border-primary/10 bg-primary/[0.04] p-0.5"
+      >
+        {
+          lang === 'es' ? (
+            <span
+              aria-current="true"
+              class="flex items-center justify-center w-8 h-6 rounded-full bg-secondary dark:bg-primary/15 text-primary text-[11px] font-semibold tracking-wider shadow-sm select-none"
+            >
+              ES
+            </span>
+          ) : (
+            <a
+              href={toggleUrl}
+              aria-label={t('lang.tooltip')}
+              class="flex items-center justify-center w-8 h-6 rounded-full text-primary/40 hover:text-primary text-[11px] font-semibold tracking-wider transition-colors duration-160 select-none outline-none focus-visible:ring-2 focus-visible:ring-blue focus-visible:ring-offset-1 focus-visible:ring-offset-secondary"
+            >
+              ES
+            </a>
+          )
+        }
+        {
+          lang === 'en' ? (
+            <span
+              aria-current="true"
+              class="flex items-center justify-center w-8 h-6 rounded-full bg-secondary dark:bg-primary/15 text-primary text-[11px] font-semibold tracking-wider shadow-sm select-none"
+            >
+              EN
+            </span>
+          ) : (
+            <a
+              href={toggleUrl}
+              aria-label={t('lang.tooltip')}
+              class="flex items-center justify-center w-8 h-6 rounded-full text-primary/40 hover:text-primary text-[11px] font-semibold tracking-wider transition-colors duration-160 select-none outline-none focus-visible:ring-2 focus-visible:ring-blue focus-visible:ring-offset-1 focus-visible:ring-offset-secondary"
+            >
+              EN
+            </a>
+          )
+        }
       </div>
 
-      <!-- Botón de Tema a la derecha -->
+      <!-- Toggle de Tema -->
       <button
         id="theme-toggle"
         aria-label={t('aria.theme.toggle')}
-        class="flex items-center justify-center w-8 h-8 rounded-lg text-primary/60 hover:text-primary hover:bg-primary/5 transition-colors duration-160 ease-out outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-secondary select-none active:scale-[0.97] cursor-pointer"
+        class="flex items-center h-7 rounded-full border border-primary/10 bg-primary/[0.04] p-0.5 cursor-pointer select-none outline-none focus-visible:ring-2 focus-visible:ring-blue focus-visible:ring-offset-1 focus-visible:ring-offset-secondary"
       >
-        <MoonIcon id="moon-icon" class="block" aria-hidden="true" />
-        <SunIcon id="sun-icon" class="hidden" aria-hidden="true" />
+        <span
+          id="moon-segment"
+          class="flex items-center justify-center w-7 h-6 rounded-full transition-colors duration-160 text-primary/40"
+          aria-hidden="true"
+        >
+          <MoonIcon class="size-3.5" />
+        </span>
+        <span
+          id="sun-segment"
+          class="flex items-center justify-center w-7 h-6 rounded-full transition-colors duration-160 text-primary/40"
+          aria-hidden="true"
+        >
+          <SunIcon class="size-3.5" />
+        </span>
       </button>
     </nav>
   </div>
@@ -153,21 +185,21 @@ const isActive = (path: string) => {
 <script>
   document.addEventListener('astro:page-load', () => {
     const themeToggle = document.getElementById('theme-toggle')
-    const moonIcon = document.getElementById('moon-icon')
-    const sunIcon = document.getElementById('sun-icon')
+    const moonSegment = document.getElementById('moon-segment')
+    const sunSegment = document.getElementById('sun-segment')
 
     const updateIcons = (isDark: boolean) => {
-      if (!moonIcon || !sunIcon) return
+      if (!moonSegment || !sunSegment) return
       if (isDark) {
-        moonIcon.classList.add('hidden')
-        moonIcon.classList.remove('block')
-        sunIcon.classList.add('block')
-        sunIcon.classList.remove('hidden')
+        moonSegment.classList.remove('segment-active', 'text-primary')
+        moonSegment.classList.add('text-primary/40')
+        sunSegment.classList.add('segment-active', 'text-primary')
+        sunSegment.classList.remove('text-primary/40')
       } else {
-        moonIcon.classList.add('block')
-        moonIcon.classList.remove('hidden')
-        sunIcon.classList.add('hidden')
-        sunIcon.classList.remove('block')
+        moonSegment.classList.add('segment-active', 'text-primary')
+        moonSegment.classList.remove('text-primary/40')
+        sunSegment.classList.remove('segment-active', 'text-primary')
+        sunSegment.classList.add('text-primary/40')
       }
     }
 
@@ -189,10 +221,7 @@ const isActive = (path: string) => {
 
     themeToggle?.addEventListener('click', handleToggleClick)
 
-    // Revisar el tema activo al cargar la página (Layout.astro script)
-    if (document.documentElement.classList.contains('dark')) {
-      updateIcons(true)
-    }
+    updateIcons(document.documentElement.classList.contains('dark'))
 
     // Lógica del menú móvil
     const mobileMenuToggle = document.getElementById('mobile-menu-toggle')

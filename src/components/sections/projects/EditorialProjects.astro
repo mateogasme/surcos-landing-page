@@ -3,6 +3,9 @@ import { getLangFromUrl } from '@/i18n/utils'
 
 const lang = getLangFromUrl(Astro.url)
 
+const projectsLabel = (n: number) =>
+  lang === 'es' ? (n === 1 ? 'proyecto' : 'proyectos') : n === 1 ? 'project' : 'projects'
+
 const content = {
   es: {
     title: 'Proyectos editoriales institucionales',
@@ -82,78 +85,63 @@ const content = {
 
 const t = content[lang]
 
-const colorMap: Record<string, { bg: string; text: string; dot: string }> = {
-  blue: {
-    bg: 'bg-blue-500/10 dark:bg-blue-500/20',
-    text: 'text-blue-600 dark:text-blue-400',
-    dot: 'bg-blue-500',
-  },
-  amber: {
-    bg: 'bg-amber-500/10 dark:bg-amber-500/20',
-    text: 'text-amber-600 dark:text-amber-400',
-    dot: 'bg-amber-500',
-  },
+const colorMap: Record<string, { dot: string; text: string }> = {
+  blue: { dot: 'bg-blue-500', text: 'text-blue-600 dark:text-blue-400' },
+  amber: { dot: 'bg-amber-500', text: 'text-amber-600 dark:text-amber-400' },
 }
 ---
 
 <section>
-  <div
-    class="rounded-2xl bg-white/50 dark:bg-zinc-900/50 border border-primary/10 dark:border-white/10 shadow-sm transition-all duration-200 overflow-hidden"
-  >
-    <header class="px-8 pt-6 pb-4 border-b border-primary/10 dark:border-white/10">
-      <h2 class="text-xl font-bold text-primary tracking-tight">
-        {t.title}
-      </h2>
+  <div class="rounded-xl border border-primary/10 overflow-hidden bg-white/60 dark:bg-white/[0.03]">
+    <header class="px-6 py-4 border-b border-primary/10">
+      <h2 class="text-sm font-semibold text-primary tracking-tight">{t.title}</h2>
     </header>
+
     {
       t.clients.map((client, clientIdx) => {
         const colors = colorMap[client.color] || colorMap.blue
         return (
           <>
-            {/* Divider between clients — full width, edge to edge */}
-            {clientIdx > 0 && <div class="border-t border-primary/10 dark:border-white/10" />}
+            {clientIdx > 0 && <div class="border-t border-primary/10" />}
 
-            {/* Client header */}
-            <div class="flex items-center gap-3 px-8 pt-7 pb-4">
-              <div class={`w-2 h-2 rounded-full ${colors.dot} shrink-0`} aria-hidden="true" />
-              <h3 class="text-lg font-semibold text-primary/90 leading-snug">{client.name}</h3>
-              <span class="text-xs font-medium text-primary/40 ml-auto tabular-nums">
-                {client.projects.length}{' '}
-                {client.projects.length === 1
-                  ? lang === 'es'
-                    ? 'proyecto'
-                    : 'project'
-                  : lang === 'es'
-                    ? 'proyectos'
-                    : 'projects'}
+            <div class="flex items-center gap-2.5 px-6 py-3 bg-primary/[0.02]">
+              <div class={`w-1.5 h-1.5 rounded-full shrink-0 ${colors.dot}`} aria-hidden="true" />
+              <span class={`text-xs font-semibold ${colors.text}`}>{client.name}</span>
+              <span class="text-xs text-primary/35 ml-auto tabular-nums">
+                {client.projects.length} {projectsLabel(client.projects.length)}
               </span>
             </div>
 
-            {/* Projects list */}
-            <div class="px-8 pb-7">
-              <ul class="flex flex-col gap-0 list-none p-0 m-0">
-                {client.projects.map((project, idx) => (
-                  <li
-                    class={`flex gap-4 py-4 ${idx !== client.projects.length - 1 ? 'border-b border-primary/5 dark:border-white/5' : ''}`}
+            <ul class="divide-y divide-primary/[0.06]">
+              {client.projects.map((project) => (
+                <li class="flex gap-4 px-6 py-4 items-start">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="15"
+                    height="15"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="text-primary/25 shrink-0 mt-0.5"
+                    aria-hidden="true"
                   >
-                    <div
-                      class={`w-7 h-7 flex items-center justify-center rounded-lg ${colors.bg} ${colors.text} text-xs font-semibold shrink-0 mt-0.5`}
-                      aria-hidden="true"
-                    >
-                      {idx + 1}
-                    </div>
-                    <div class="flex flex-col gap-1 min-w-0">
-                      <strong class="text-[0.95rem] text-primary/90 leading-snug font-medium">
-                        {project.title}
-                      </strong>
-                      <p class="text-[0.875rem] text-primary/60 leading-relaxed font-normal text-pretty m-0">
-                        {project.desc}
-                      </p>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </div>
+                    <path d="M10 2v8l3-3 3 3V2" />
+                    <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20" />
+                  </svg>
+                  <div class="flex flex-col gap-0.5 min-w-0">
+                    <strong class="text-sm font-medium text-primary/90 leading-snug">
+                      {project.title}
+                    </strong>
+                    <p class="text-xs text-primary/55 leading-relaxed font-normal text-pretty m-0">
+                      {project.desc}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ul>
           </>
         )
       })

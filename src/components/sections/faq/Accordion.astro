@@ -6,37 +6,38 @@ const lang = getLangFromUrl(Astro.url)
 const faqs = faqsData[lang]
 ---
 
-<div class="flex flex-col gap-4">
+<div class="rounded-xl border border-primary/10 overflow-hidden bg-white/60 dark:bg-white/[0.03]">
   {
-    faqs.map((faq) => (
-      <details class="faq-detail group rounded-2xl bg-white/50 dark:bg-zinc-900/50 border border-primary/10 dark:border-white/10 shadow-sm transition-shadow overflow-hidden">
-        <summary class="flex justify-between items-center font-semibold text-primary/90 text-[1.1rem] leading-snug list-none [&::-webkit-details-marker]:hidden p-6 cursor-pointer">
-          {faq.question}
-          <span class="faq-icon transition-transform duration-200 ease-out opacity-50 ml-4 shrink-0" aria-hidden="true">
+    faqs.map((faq, idx) => (
+      <details
+        class={`faq-detail group${idx < faqs.length - 1 ? ' border-b border-primary/[0.06]' : ''}`}
+      >
+        <summary class="faq-summary flex justify-between items-center gap-4 px-6 py-4 cursor-pointer list-none [&::-webkit-details-marker]:hidden select-none transition-colors duration-160">
+          <span class="text-sm font-medium text-primary/90 leading-snug [text-wrap:pretty]">
+            {faq.question}
+          </span>
+          <span class="faq-icon text-primary/35 shrink-0" aria-hidden="true">
             <svg
               fill="none"
-              height="24"
-              shape-rendering="geometricPrecision"
+              height="16"
+              width="16"
+              viewBox="0 0 24 24"
               stroke="currentColor"
+              stroke-width="2.5"
               stroke-linecap="round"
               stroke-linejoin="round"
-              stroke-width="2.5"
-              viewBox="0 0 24 24"
-              width="24"
             >
               <path d="M6 9l6 6 6-6" />
             </svg>
           </span>
         </summary>
         <div
-          class="faq-content transition-max-height duration-200 ease-out opacity-0 overflow-hidden"
-          style="max-height: 0px;"
+          class="faq-content overflow-hidden"
+          style="max-height: 0px; opacity: 0; transform: translateY(5px);"
         >
-          <div class="px-6 pt-2">
-            <p class="text-[0.95rem] text-primary/70 leading-relaxed font-normal text-pretty">
+          <div class="px-6 py-5">
+            <p class="text-sm text-primary/60 leading-relaxed font-normal [text-wrap:pretty] m-0">
               {faq.answer}
-              <br />
-              <br />
             </p>
           </div>
         </div>
@@ -46,28 +47,42 @@ const faqs = faqsData[lang]
 </div>
 
 <style>
+  .faq-icon {
+    transition: transform 200ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .faq-content {
+    transition:
+      max-height 240ms cubic-bezier(0.23, 1, 0.32, 1),
+      opacity 200ms ease,
+      transform 240ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
   details summary {
-    user-select: none;
     outline: none;
   }
 
   details summary:focus-visible {
-    outline: 2px solid var(--primary);
+    outline: 2px solid var(--blue-color);
     outline-offset: -2px;
     border-radius: inherit;
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    .faq-detail,
-    .faq-icon,
-    .faq-content {
-      transition: none !important;
+  @media (hover: hover) and (pointer: fine) {
+    .faq-summary:hover {
+      background-color: color-mix(in srgb, var(--primary) 2%, transparent);
+    }
+    .faq-detail[open] .faq-summary {
+      background-color: color-mix(in srgb, var(--primary) 2%, transparent);
     }
   }
 
-  @media (hover: none) {
-    details summary:hover {
-      background: transparent;
+  @media (prefers-reduced-motion: reduce) {
+    .faq-icon {
+      transition: none !important;
+    }
+    .faq-content {
+      transition: opacity 160ms ease !important;
     }
   }
 </style>
@@ -75,8 +90,11 @@ const faqs = faqsData[lang]
 <script>
   document.addEventListener('astro:page-load', () => {
     const detailsElements = document.querySelectorAll('.faq-detail')
-
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+    const EASE = 'cubic-bezier(0.23, 1, 0.32, 1)'
+    const OPEN_MS = 240
+    const CLOSE_MS = 150
 
     detailsElements.forEach((detail) => {
       if (detail.hasAttribute('data-faq-init')) return
@@ -88,8 +106,6 @@ const faqs = faqsData[lang]
 
       if (!summary || !content) return
 
-      const duration = 200
-
       summary.addEventListener('click', (e) => {
         e.preventDefault()
 
@@ -99,37 +115,38 @@ const faqs = faqsData[lang]
           if (isClosing) {
             detail.removeAttribute('open')
             icon.style.transform = 'rotate(0deg)'
-            detail.classList.remove('shadow-md', 'bg-white', 'dark:bg-zinc-900')
           } else {
             detail.setAttribute('open', '')
-            detail.classList.add('shadow-md', 'bg-white', 'dark:bg-zinc-900')
             icon.style.transform = 'rotate(180deg)'
           }
           return
         }
 
         if (isClosing) {
+          content.style.transition = `max-height ${CLOSE_MS}ms ${EASE}, opacity ${Math.round(CLOSE_MS * 0.8)}ms ease`
+          icon.style.transition = `transform ${CLOSE_MS}ms ${EASE}`
           content.style.maxHeight = content.scrollHeight + 'px'
           void content.offsetWidth
           content.style.maxHeight = '0px'
           content.style.opacity = '0'
+          content.style.transform = 'translateY(0)'
           icon.style.transform = 'rotate(0deg)'
-          detail.classList.remove('shadow-md', 'bg-white', 'dark:bg-zinc-900')
-          setTimeout(() => {
-            detail.removeAttribute('open')
-          }, duration)
+          setTimeout(() => detail.removeAttribute('open'), CLOSE_MS)
         } else {
           detail.setAttribute('open', '')
-          detail.classList.add('shadow-md', 'bg-white', 'dark:bg-zinc-900')
+          content.style.transition = `max-height ${OPEN_MS}ms ${EASE}, opacity ${Math.round(OPEN_MS * 0.85)}ms ease, transform ${OPEN_MS}ms ${EASE}`
+          icon.style.transition = `transform ${OPEN_MS}ms ${EASE}`
           content.style.maxHeight = '0px'
           content.style.opacity = '0'
+          content.style.transform = 'translateY(5px)'
           void content.offsetWidth
-          content.style.maxHeight = content.scrollHeight + 100 + 'px'
+          content.style.maxHeight = content.scrollHeight + 'px'
           content.style.opacity = '1'
+          content.style.transform = 'translateY(0)'
           icon.style.transform = 'rotate(180deg)'
           setTimeout(() => {
             content.style.maxHeight = 'none'
-          }, duration)
+          }, OPEN_MS)
         }
       })
     })
